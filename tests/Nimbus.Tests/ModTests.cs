@@ -273,9 +273,10 @@ public sealed class ModTests : IDisposable
         RobloxFile(ModManager.DeathSoundFile, "ouch");
         var applier = new ModApplier(Version, Backups);
 
-        var mods = ModManager.Build(new ModSettings { DeathSound = DeathSoundChoice.Nimbus, DeathSoundPreset = "blip" }, applier, Paths.Modifications);
+        var mods = ModManager.Build(new ModSettings { DeathSound = DeathSoundChoice.Nimbus, DeathSoundPreset = "ding" }, applier, Paths.Modifications);
         var write = Assert.IsType<ModFile.Write>(mods[ModManager.DeathSoundFile]);
-        Assert.Equal(SoundPresets.Render(SoundPresets.Find("blip")!), write.Content);
+        Assert.Empty(ModManager.Build(new ModSettings { DeathSound = DeathSoundChoice.Nimbus, DeathSoundPreset = "blip" }, applier, Paths.Modifications)); // removed in 1.0.1
+        Assert.Equal(SoundPresets.Render(SoundPresets.Find("ding")!), write.Content);
 
         var settings = new ModSettings { DeathSound = DeathSoundChoice.Custom };
         settings.CustomSoundName = ModAssets.AddSound(ExternalFile("fahh.mp3", "fahhh"));

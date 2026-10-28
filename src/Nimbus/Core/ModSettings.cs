@@ -32,7 +32,7 @@ public sealed class ModSettings
 
     public DeathSoundChoice DeathSound { get; set; }
 
-    /// <summary>With DeathSound = Nimbus: the built-in sound in use (e.g. "blip").</summary>
+    /// <summary>With DeathSound = Nimbus: the built-in sound in use (e.g. "ding"); an id that no longer exists means Roblox's default.</summary>
     public string? DeathSoundPreset { get; set; }
 
     /// <summary>With DeathSound = Custom: the file name in Nimbus\Mods\Sounds that's in use.</summary>

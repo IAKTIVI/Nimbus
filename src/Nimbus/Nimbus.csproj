@@ -12,7 +12,7 @@
     <NoWarn>$(NoWarn);WFO0003</NoWarn>
     <RootNamespace>Nimbus</RootNamespace>
     <AssemblyName>Nimbus</AssemblyName>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <Product>Nimbus</Product>
     <Description>A lightweight Roblox launcher</Description>
     <ApplicationIcon>Assets\Nimbus.ico</ApplicationIcon>

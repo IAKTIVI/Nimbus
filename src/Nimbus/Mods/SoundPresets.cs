@@ -13,9 +13,6 @@ internal static class SoundPresets
 
     public static IReadOnlyList<SoundPreset> All { get; } =
     [
-        new("blip", Blip, 0.4),
-        new("gameover", GameOver, 1.0),
-        new("zap", Zap, 0.3),
         new("ding", Ding, 1.0),
         new("thud", Thud, 0.35),
     ];
@@ -54,42 +51,6 @@ internal static class SoundPresets
     }
 
     // ---------- The sounds (t in seconds, result -1..1) ----------
-
-    private static double Square(double phase) => phase % 1 < 0.5 ? 1 : -1;
-
-    /// <summary>A falling 8-bit blip, like losing a life.</summary>
-    private static double Blip(double t)
-    {
-        // Phase of a tone sliding exponentially from 880 Hz down to 110 Hz over 0.4 s.
-        const double from = 880, to = 110, length = 0.4;
-        double k = Math.Log(to / from) / length;
-        double phase = from * (Math.Exp(k * t) - 1) / k;
-        return 0.3 * Square(phase) * (1 - t / length);
-    }
-
-    /// <summary>Three falling notes and a long low one.</summary>
-    private static double GameOver(double t)
-    {
-        (double start, double length, double hz)[] notes = [(0, 0.13, 392), (0.15, 0.13, 330), (0.3, 0.13, 262), (0.45, 0.55, 131)];
-        foreach (var (start, length, hz) in notes)
-        {
-            if (t >= start && t < start + length)
-            {
-                double local = t - start;
-                return 0.28 * Square(hz * local) * Math.Min(1, (length - local) / 0.03);
-            }
-        }
-        return 0;
-    }
-
-    /// <summary>A quick laser "pew" sweep.</summary>
-    private static double Zap(double t)
-    {
-        const double from = 1600, to = 180, length = 0.3;
-        double k = Math.Log(to / from) / length;
-        double phase = from * (Math.Exp(k * t) - 1) / k;
-        return 0.25 * Square(phase) * Math.Exp(-t * 6);
-    }
 
     /// <summary>A soft bell.</summary>
     private static double Ding(double t)

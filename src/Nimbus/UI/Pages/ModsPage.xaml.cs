@@ -372,7 +372,7 @@ public partial class ModsPage : UserControl, IPage
         foreach (var preset in FontPresets.All)
             FontGallery.Items.Add(Tile(preset.Id, preset.Name, FontSample(FontPresets.Downloaded(preset), preset.Name)));
         FontGallery.Items.Add(Tile(OwnFont, Loc.T("Mods.FontOwn"), Mods.FontPreset is null && ModAssets.Font is { } own
-            ? FontSample(own)
+            ? FontSample(own, ownFamily: Mods.CustomFontName)
             : new TextBlock { Text = "", FontFamily = (FontFamily)FindResource("IconFont"), FontSize = 20, HorizontalAlignment = HorizontalAlignment.Center, VerticalAlignment = VerticalAlignment.Center }));
 
         FontGallery.SelectedItem = FontGallery.Items.OfType<ListBoxItem>().FirstOrDefault(i => (string)i.Tag == CurrentFontTile);
@@ -380,7 +380,7 @@ public partial class ModsPage : UserControl, IPage
     }
 
     /// <summary>"Aa" in the font, or a download / folder icon while there's no file yet.</summary>
-    private FrameworkElement FontSample(string? file, string? presetName = null)
+    private FrameworkElement FontSample(string? file, string? presetName = null, string? ownFamily = null)
     {
         var sample = new TextBlock { Text = "Aa", FontSize = 24, HorizontalAlignment = HorizontalAlignment.Center, VerticalAlignment = VerticalAlignment.Center };
         if (file is null)
@@ -397,11 +397,14 @@ public partial class ModsPage : UserControl, IPage
 
         try
         {
-            sample.FontFamily = PreviewFamily(file);
+            // A downloaded font's file is never replaced, so reading its name from it is fine; the user's own font
+            // file is (reading it locks it), so its name comes from when it was picked.
+            if ((ownFamily ?? (presetName is not null ? ModAssets.FamilyName(file) : null)) is { } family)
+                sample.FontFamily = PreviewFamily(file, family);
         }
-        catch (Exception ex) when (ex is InvalidDataException or IOException or ArgumentException or UriFormatException)
+        catch (Exception ex)
         {
-            Logger.Warn(LogIdent, $"Font tile: {ex.Message}");
+            Logger.Warn(LogIdent, $"Font tile: {ex.Message}"); // only a preview: never stop the page from opening
         }
         return sample;
     }
@@ -497,13 +500,11 @@ public partial class ModsPage : UserControl, IPage
     }
 
     /// <summary>WPF keeps font files open, so fonts are shown from a temporary copy and Nimbus's own files stay replaceable.</summary>
-    private static FontFamily PreviewFamily(string font, string? family = null)
+    private static FontFamily PreviewFamily(string font, string family)
     {
         string fileName = $"{Guid.NewGuid():N}{Path.GetExtension(font)}";
         Directory.CreateDirectory(PreviewFolder);
-        string copy = Path.Combine(PreviewFolder, fileName);
-        File.Copy(font, copy);
-        family ??= ModAssets.FamilyName(copy); // read from the copy too: reading it locks the file
+        File.Copy(font, Path.Combine(PreviewFolder, fileName));
         return new FontFamily(new Uri(PreviewFolder + "\\"), $"./{fileName}#{family}");
     }
 
