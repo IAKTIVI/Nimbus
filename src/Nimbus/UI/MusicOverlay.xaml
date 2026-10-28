@@ -1,0 +1,95 @@
+<Window x:Class="Nimbus.UI.MusicOverlay"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:l="clr-namespace:Nimbus.UI"
+        Title="{l:T Music.NimbusMusic}" WindowStyle="None" AllowsTransparency="True" Background="Transparent"
+        Topmost="True" ShowInTaskbar="False" ShowActivated="False" ResizeMode="NoResize"
+        SizeToContent="WidthAndHeight" FontFamily="{StaticResource UiFont}">
+
+    <!-- Always dark, whatever Nimbus's theme: it sits on top of a game -->
+    <Window.Resources>
+        <SolidColorBrush x:Key="CardText" Color="#FFF3F3F7" />
+        <SolidColorBrush x:Key="CardDim" Color="#99F3F3F7" />
+        <Style x:Key="CardButton" TargetType="Button">
+            <Setter Property="Width" Value="34" />
+            <Setter Property="Height" Value="30" />
+            <Setter Property="FontFamily" Value="{StaticResource IconFont}" />
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="Foreground" Value="{StaticResource CardDim}" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Focusable" Value="False" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="Bd" CornerRadius="8" Background="Transparent">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Bd" Property="Background" Value="#1FFFFFFF" />
+                                <Setter Property="Foreground" Value="{StaticResource CardText}" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="Bd" Property="Background" Value="#2EFFFFFF" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Opacity" Value="0.3" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <!-- Drag the background to move the card; double-click puts it back in the top right -->
+    <Border x:Name="Card" Width="300" CornerRadius="14" Background="#E6121218" BorderBrush="#1FFFFFFF" BorderThickness="1" Padding="12,12,12,8"
+            MouseLeftButtonDown="Card_MouseDown" MouseMove="Card_MouseMove" MouseLeftButtonUp="Card_MouseUp">
+        <StackPanel>
+            <StackPanel x:Name="MusicPart">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Border Width="44" Height="44" CornerRadius="8" Background="#1FFFFFFF" ClipToBounds="True">
+                    <Image x:Name="Cover" Width="44" Height="44" Stretch="UniformToFill" RenderOptions.BitmapScalingMode="HighQuality" />
+                </Border>
+                <StackPanel Grid.Column="1" Margin="12,0,0,0" VerticalAlignment="Center">
+                    <TextBlock x:Name="TitleText" FontSize="13" FontWeight="SemiBold" Foreground="{StaticResource CardText}" TextTrimming="CharacterEllipsis" />
+                    <TextBlock x:Name="ArtistText" FontSize="11.5" Margin="0,2,0,0" Foreground="{StaticResource CardDim}" TextTrimming="CharacterEllipsis" />
+                </StackPanel>
+            </Grid>
+
+            <StackPanel x:Name="ProgressPanel">
+            <!-- Click or drag on the bar to jump in the song; the bar is thin but the area you can grab is taller -->
+            <Grid x:Name="SeekArea" Margin="0,6,0,0" Height="14" Background="Transparent"
+                  MouseLeftButtonDown="Seek_MouseDown" MouseMove="Seek_MouseMove" MouseLeftButtonUp="Seek_MouseUp"
+                  MouseEnter="Seek_MouseEnter" MouseLeave="Seek_MouseLeave">
+                <Grid x:Name="Bar" Height="3" VerticalAlignment="Center">
+                    <Border CornerRadius="2.5" Background="#26FFFFFF" />
+                    <Border x:Name="ProgressFill" CornerRadius="2.5" Background="{StaticResource CardText}" HorizontalAlignment="Left" Width="0" />
+                </Grid>
+            </Grid>
+            <Grid Margin="0,1,0,0">
+                <TextBlock x:Name="ElapsedText" FontSize="10.5" Foreground="{StaticResource CardDim}" />
+                <TextBlock x:Name="RemainingText" FontSize="10.5" Foreground="{StaticResource CardDim}" HorizontalAlignment="Right" />
+            </Grid>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,2,0,0">
+                <Button x:Name="ShuffleButton" Style="{StaticResource CardButton}" Content="&#xE8B1;" ToolTip="{l:T Music.Shuffle}" Click="Shuffle_Click" />
+                <Button x:Name="PreviousButton" Style="{StaticResource CardButton}" Content="&#xE892;" ToolTip="{l:T Music.Previous}" Click="Previous_Click" Margin="6,0,0,0" />
+                <Button x:Name="PlayButton" Style="{StaticResource CardButton}" Content="&#xE768;" FontSize="16" Foreground="{StaticResource CardText}" Click="Play_Click" Margin="6,0,0,0" />
+                <Button x:Name="NextButton" Style="{StaticResource CardButton}" Content="&#xE893;" ToolTip="{l:T Music.Next}" Click="Next_Click" Margin="6,0,0,0" />
+                <Button x:Name="RepeatButton" Style="{StaticResource CardButton}" Content="&#xE8EE;" ToolTip="{l:T Music.Repeat}" Click="Repeat_Click" Margin="6,0,0,0" />
+            </StackPanel>
+            </StackPanel>
+
+            <!-- The widgets switched on in the widget menu: CPU - GPU - time - session - server, in one line -->
+            <Border x:Name="StatsPart" BorderBrush="#14FFFFFF" BorderThickness="0,1,0,0" Margin="0,6,0,0" Padding="0,6,0,1" Visibility="Collapsed">
+                <TextBlock x:Name="StatsText" FontSize="11.5" Foreground="{StaticResource CardDim}" TextWrapping="Wrap" TextAlignment="Center" />
+            </Border>
+        </StackPanel>
+    </Border>
+</Window>

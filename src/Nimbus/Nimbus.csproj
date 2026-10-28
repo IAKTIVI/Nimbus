@@ -1,0 +1,83 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <!-- Only for the tray icon (NotifyIcon) while Roblox runs -->
+    <UseWindowsForms>true</UseWindowsForms>
+    <!-- WFO0003 wants DPI settings out of app.manifest, but the window UI is WPF, which reads them from there -->
+    <NoWarn>$(NoWarn);WFO0003</NoWarn>
+    <RootNamespace>Nimbus</RootNamespace>
+    <AssemblyName>Nimbus</AssemblyName>
+    <Version>1.0.0</Version>
+    <Product>Nimbus</Product>
+    <Description>A lightweight Roblox launcher</Description>
+    <ApplicationIcon>Assets\Nimbus.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <TieredPGO>true</TieredPGO>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <!-- Needed by the source-generated [LibraryImport] calls into dwmapi -->
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <!-- dotnet publish -c Release -r win-x64 => one small framework-dependent Nimbus.exe -->
+  <PropertyGroup Condition="'$(RuntimeIdentifier)' != ''">
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>false</SelfContained>
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\Nimbus.png" />
+    <InternalsVisibleTo Include="Nimbus.Tests" />
+    <!-- WPF projects leave these out of the implicit usings -->
+    <Using Include="System.IO" />
+    <Using Include="System.Net.Http" />
+    <!-- Keep WinForms names from clashing with WPF ones (Application, Button, Image...) -->
+    <Using Remove="System.Windows.Forms" />
+    <Using Remove="System.Drawing" />
+  </ItemGroup>
+
+  <!-- UI text: Lang\*.txt are gzipped into the EXE (about a third of the size), read by Core\Loc.cs -->
+  <ItemGroup>
+    <LanguageFile Include="Lang\*.txt" />
+    <None Remove="Lang\*.txt" />
+  </ItemGroup>
+
+  <UsingTask TaskName="GzipLanguages" TaskFactory="RoslynCodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.Core.dll">
+    <ParameterGroup>
+      <Files ParameterType="Microsoft.Build.Framework.ITaskItem[]" Required="true" />
+      <OutputDir Required="true" />
+    </ParameterGroup>
+    <Task>
+      <Using Namespace="System.IO" />
+      <Using Namespace="System.IO.Compression" />
+      <Code Type="Fragment" Language="cs"><![CDATA[
+        Directory.CreateDirectory(OutputDir);
+        foreach (var file in Files)
+        {
+            string target = Path.Combine(OutputDir, Path.GetFileName(file.ItemSpec) + ".gz");
+            using (var input = File.OpenRead(file.ItemSpec))
+            using (var output = File.Create(target))
+            using (var gzip = new GZipStream(output, CompressionLevel.Optimal))
+                input.CopyTo(gzip);
+        }
+      ]]></Code>
+    </Task>
+  </UsingTask>
+
+  <Target Name="PackLanguages" BeforeTargets="PrepareForBuild" Inputs="@(LanguageFile)" Outputs="@(LanguageFile->'$(IntermediateOutputPath)lang\%(Filename)%(Extension).gz')">
+    <GzipLanguages Files="@(LanguageFile)" OutputDir="$(IntermediateOutputPath)lang" />
+  </Target>
+
+  <Target Name="EmbedLanguages" AfterTargets="PackLanguages" BeforeTargets="PrepareForBuild">
+    <ItemGroup>
+      <EmbeddedResource Include="@(LanguageFile->'$(IntermediateOutputPath)lang\%(Filename)%(Extension).gz')" LogicalName="Nimbus.Lang.%(Filename)%(Extension).gz" WithCulture="false" Type="Non-Resx" />
+    </ItemGroup>
+  </Target>
+
+</Project>

@@ -1,0 +1,46 @@
+<UserControl x:Class="Nimbus.UI.Pages.WidgetsPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:l="clr-namespace:Nimbus.UI"
+             xmlns:c="clr-namespace:Nimbus.UI.Controls">
+    <StackPanel>
+
+        <TextBlock Style="{StaticResource SectionLabel}" Text="{l:T Widgets.MenuSection}" />
+        <Border Style="{StaticResource GlassPanel}">
+            <StackPanel>
+                <c:SettingRow Title="{l:T Widgets.MenuKey}" Description="{l:T Widgets.MenuKeyDesc}">
+                    <Button x:Name="MenuKeyButton" MinWidth="110" Click="MenuKey_Click" PreviewKeyDown="MenuKey_PreviewKeyDown" LostFocus="MenuKey_LostFocus" />
+                </c:SettingRow>
+                <Border Style="{StaticResource RowSeparator}" />
+                <c:SettingRow Title="{l:T Widgets.DimGame}" Description="{l:T Widgets.DimGameDesc}">
+                    <CheckBox x:Name="DimToggle" Style="{StaticResource Switch}" Click="MenuLook_Click" />
+                </c:SettingRow>
+                <Border Style="{StaticResource RowSeparator}" />
+                <c:SettingRow Title="{l:T Widgets.Snow}" Description="{l:T Widgets.SnowDesc}">
+                    <CheckBox x:Name="SnowToggle" Style="{StaticResource Switch}" Click="MenuLook_Click" />
+                </c:SettingRow>
+            </StackPanel>
+        </Border>
+
+        <TextBlock Style="{StaticResource SectionLabel}" Text="{l:T Widgets.CardSection}" />
+        <Border Style="{StaticResource GlassPanel}">
+            <StackPanel>
+                <c:SettingRow Title="{l:T Integrations.MusicCardInRoblox}" Description="{l:T Integrations.MusicCardInRobloxDesc}">
+                    <CheckBox x:Name="MusicToggle" Style="{StaticResource Switch}" Click="Widget_Click" Tag="Music" />
+                </c:SettingRow>
+                <Border Style="{StaticResource RowSeparator}" />
+                <c:SettingRow Title="{l:T Widgets.ResetCard}" Description="{l:T Widgets.ResetCardDesc}">
+                    <Button Content="{l:T Profiles.Reset}" Click="ResetWidgets_Click" />
+                </c:SettingRow>
+            </StackPanel>
+        </Border>
+
+        <TextBlock Style="{StaticResource SectionLabel}" Text="{l:T Widgets.StatsSection}" />
+        <Border Style="{StaticResource GlassPanel}">
+            <StackPanel>
+                <TextBlock Style="{StaticResource CaptionText}" Margin="18,14,18,2" TextWrapping="Wrap" Text="{l:T Widgets.StatsHint}" />
+                <StackPanel x:Name="WidgetRows" />
+            </StackPanel>
+        </Border>
+    </StackPanel>
+</UserControl>

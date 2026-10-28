@@ -1,0 +1,61 @@
+<UserControl x:Class="Nimbus.UI.Pages.AboutPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:l="clr-namespace:Nimbus.UI"
+             xmlns:c="clr-namespace:Nimbus.UI.Controls">
+    <StackPanel>
+
+        <StackPanel HorizontalAlignment="Center" Margin="0,18,0,4">
+            <Image Source="/Assets/Nimbus.png" Width="96" Height="96" RenderOptions.BitmapScalingMode="HighQuality">
+                <Image.Effect>
+                    <DropShadowEffect Color="{DynamicResource AccentGlowColor}" BlurRadius="44" ShadowDepth="0" Opacity="0.6" />
+                </Image.Effect>
+            </Image>
+            <TextBlock Text="Nimbus" Margin="0,18,0,0" FontSize="22" FontWeight="SemiBold" HorizontalAlignment="Center" />
+            <TextBlock x:Name="VersionText" Margin="0,4,0,0" Foreground="{DynamicResource TextSecondaryBrush}" HorizontalAlignment="Center" />
+            <TextBlock Text="{l:T About.ALightweightRobloxLauncher}" Margin="0,2,0,0" Foreground="{DynamicResource TextTertiaryBrush}" HorizontalAlignment="Center" />
+        </StackPanel>
+
+        <TextBlock Style="{StaticResource SectionLabel}" Text="{l:T About.Updates}" />
+        <Border Style="{StaticResource GlassPanel}">
+            <StackPanel>
+                <c:SettingRow x:Name="UpdateRow" Title="{l:T About.NimbusUpdates}" Description="{l:T About.NimbusUpdatesDesc}">
+                    <Button x:Name="DownloadButton" Content="{l:T About.Download}" Style="{StaticResource PrimaryButton}" Visibility="Collapsed" Click="Download_Click" />
+                </c:SettingRow>
+                <Border Style="{StaticResource RowSeparator}" />
+                <c:SettingRow Title="{l:T About.UpdateAutomatically}"
+                              Description="{l:T About.UpdateAutomaticallyDesc}">
+                    <CheckBox x:Name="AutoUpdateToggle" Style="{StaticResource Switch}" Click="AutoUpdate_Click" />
+                </c:SettingRow>
+            </StackPanel>
+        </Border>
+
+        <TextBlock Style="{StaticResource SectionLabel}" Text="{l:T About.Files}" />
+        <Border Style="{StaticResource GlassPanel}">
+            <StackPanel>
+                <c:SettingRow x:Name="FolderRow" Title="{l:T About.NimbusFolder}">
+                    <Button Content="{l:T About.Open}" Click="OpenFolder_Click" />
+                </c:SettingRow>
+                <Border Style="{StaticResource RowSeparator}" />
+                <c:SettingRow Title="{l:T About.Logs}" Description="{l:T About.LogsDesc}">
+                    <Button Content="{l:T About.Open}" Click="OpenLogs_Click" />
+                </c:SettingRow>
+            </StackPanel>
+        </Border>
+
+        <TextBlock Style="{StaticResource SectionLabel}" Text="{l:T About.StartOver}" />
+        <Border Style="{StaticResource GlassPanel}">
+            <StackPanel>
+            <c:SettingRow Title="{l:T About.ResetAllSettings}" Description="{l:T About.ResetAllSettingsDesc}">
+                <Button Content="{l:T About.Reset}" Click="Reset_Click" />
+            </c:SettingRow>
+            <Border Style="{StaticResource RowSeparator}" />
+            <c:SettingRow Title="{l:T About.UninstallNimbus}"
+                          Description="{l:T About.UninstallNimbusDesc}">
+                <Button Content="{l:T About.Uninstall}" Style="{StaticResource DangerButton}" Click="Uninstall_Click" />
+            </c:SettingRow>
+            </StackPanel>
+        </Border>
+
+    </StackPanel>
+</UserControl>

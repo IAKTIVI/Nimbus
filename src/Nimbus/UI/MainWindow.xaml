@@ -1,0 +1,117 @@
+<Window x:Class="Nimbus.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:l="clr-namespace:Nimbus.UI"
+        Title="Nimbus" Width="960" Height="640" MinWidth="820" MinHeight="540"
+        WindowStartupLocation="CenterScreen" ResizeMode="CanResize"
+        Background="Transparent" FontFamily="{StaticResource UiFont}" FontSize="14"
+        Foreground="{DynamicResource TextPrimaryBrush}">
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="44" GlassFrameThickness="-1" ResizeBorderThickness="6"
+                      CornerRadius="0" UseAeroCaptionButtons="False" />
+    </WindowChrome.WindowChrome>
+
+    <ContentControl Style="{StaticResource WindowSurface}">
+        <Grid x:Name="Root">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="44" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <!-- Title bar -->
+            <StackPanel Orientation="Horizontal" Margin="18,0,0,0" VerticalAlignment="Center">
+                <Image Source="/Assets/Nimbus.png" Width="18" Height="18" RenderOptions.BitmapScalingMode="HighQuality" />
+                <TextBlock Text="Nimbus" Margin="10,0,0,0" FontWeight="SemiBold" Foreground="{DynamicResource TextSecondaryBrush}" VerticalAlignment="Center" />
+                <TextBlock x:Name="VersionText" Margin="8,0,0,0" FontSize="12" Foreground="{DynamicResource TextTertiaryBrush}" VerticalAlignment="Center" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Style="{StaticResource WindowButton}" Content="&#xE921;" ToolTip="{l:T Main.Minimize}" Click="Minimize_Click" />
+                <Button x:Name="MaximizeButton" Style="{StaticResource WindowButton}" Content="&#xE922;" ToolTip="{l:T Main.Maximize}" Click="Maximize_Click" />
+                <Button Style="{StaticResource CloseButton}" Content="&#xE8BB;" ToolTip="{l:T Main.Close}" Click="Close_Click" />
+            </StackPanel>
+
+            <!-- Top bar: page icons (name on hover) with Play in the middle -->
+            <Border Grid.Row="1" Style="{StaticResource GlassPanel}" CornerRadius="24" Padding="6" HorizontalAlignment="Center" Margin="0,2,0,6">
+                <StackPanel Orientation="Horizontal">
+                    <ListBox x:Name="NavLeft" Style="{StaticResource NavIconList}" SelectionChanged="Nav_SelectionChanged" VerticalAlignment="Center">
+                        <ListBoxItem Tag="Launch" AutomationProperties.Name="Launch" ToolTip="{l:T Main.Launch}">
+                            <TextBlock Style="{StaticResource NavIcon}" Text="&#xE7FC;" />
+                        </ListBoxItem>
+                        <ListBoxItem Tag="Engine" AutomationProperties.Name="Engine" ToolTip="{l:T Main.Engine}">
+                            <TextBlock Style="{StaticResource NavIcon}" Text="&#xE945;" />
+                        </ListBoxItem>
+                        <ListBoxItem Tag="Mods" AutomationProperties.Name="Mods" ToolTip="{l:T Main.Mods}">
+                            <TextBlock Style="{StaticResource NavIcon}" Text="&#xEA86;" />
+                        </ListBoxItem>
+                        <ListBoxItem Tag="Performance" AutomationProperties.Name="Performance" ToolTip="{l:T Main.Performance}">
+                            <TextBlock Style="{StaticResource NavIcon}" Text="&#xEC4A;" />
+                        </ListBoxItem>
+                        <ListBoxItem Tag="Profiles" AutomationProperties.Name="Profiles" ToolTip="{l:T Main.Profiles}">
+                            <TextBlock Style="{StaticResource NavIcon}" Text="&#xE9E9;" />
+                        </ListBoxItem>
+                    </ListBox>
+
+                    <Button x:Name="PlayButton" Style="{StaticResource PrimaryButton}" Height="38" Padding="22,0,26,0" Margin="10,0" FontSize="15"
+                            AutomationProperties.Name="Play" Click="Play_Click" MouseEnter="Play_MouseEnter" MouseLeave="Play_MouseLeave">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="&#xF5B0;" FontFamily="{StaticResource IconFont}" FontSize="11" VerticalAlignment="Center" />
+                            <TextBlock Text="{l:T Main.Play}" Margin="8,0,0,0" FontWeight="SemiBold" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button>
+
+                    <ListBox x:Name="NavRight" Style="{StaticResource NavIconList}" SelectionChanged="Nav_SelectionChanged" VerticalAlignment="Center">
+                        <ListBoxItem Tag="Integrations" AutomationProperties.Name="Integrations" ToolTip="{l:T Main.Integrations}">
+                            <TextBlock Style="{StaticResource NavIcon}" Text="&#xE774;" />
+                        </ListBoxItem>
+                        <ListBoxItem Tag="Widgets" AutomationProperties.Name="Widgets" ToolTip="{l:T Main.Widgets}">
+                            <TextBlock Style="{StaticResource NavIcon}" Text="&#xE8A9;" />
+                        </ListBoxItem>
+                        <ListBoxItem Tag="History" AutomationProperties.Name="History" ToolTip="{l:T Main.History}">
+                            <TextBlock Style="{StaticResource NavIcon}" Text="&#xE81C;" />
+                        </ListBoxItem>
+                        <ListBoxItem Tag="Appearance" AutomationProperties.Name="Appearance" ToolTip="{l:T Main.Appearance}">
+                            <TextBlock Style="{StaticResource NavIcon}" Text="&#xE790;" />
+                        </ListBoxItem>
+                        <ListBoxItem Tag="About" AutomationProperties.Name="About" ToolTip="{l:T Main.About}">
+                            <TextBlock Style="{StaticResource NavIcon}" Text="&#xE946;" />
+                        </ListBoxItem>
+                    </ListBox>
+                </StackPanel>
+            </Border>
+
+            <!-- Shown while the mouse is on Play, only when Roblox still needs installing or updating -->
+            <Popup x:Name="PlayPopup" PlacementTarget="{Binding ElementName=PlayButton}" Placement="Custom"
+                   AllowsTransparency="True" PopupAnimation="Fade" StaysOpen="True">
+                <Border x:Name="PlayPanel" Width="240" Background="{DynamicResource PopupBrush}" BorderBrush="{DynamicResource GlassBorderBrush}"
+                        BorderThickness="1" CornerRadius="12" Padding="14,11" Margin="12,0,12,12"
+                        MouseLeave="Play_MouseLeave">
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="24" ShadowDepth="4" Opacity="0.45" Color="Black" />
+                    </Border.Effect>
+                    <StackPanel>
+                        <TextBlock x:Name="PlayVersionText" FontSize="12.5" FontWeight="SemiBold" />
+                        <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                            <Ellipse x:Name="PlayStatusDot" Width="6" Height="6" Fill="{DynamicResource TextTertiaryBrush}" VerticalAlignment="Center" />
+                            <TextBlock x:Name="PlayStatusText" Margin="7,0,0,0" FontSize="12" Foreground="{DynamicResource TextSecondaryBrush}" TextWrapping="Wrap" MaxWidth="200" />
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </Popup>
+
+            <!-- Page -->
+            <Grid Grid.Row="2" Margin="24,0,14,14" MaxWidth="1040">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="PageTitle" Style="{StaticResource PageTitle}" Margin="6,4,0,0" />
+                <ScrollViewer x:Name="PageScroller" Grid.Row="1" Margin="0,6,0,0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Focusable="False"
+                              ScrollChanged="PageScroller_ScrollChanged">
+                    <ContentControl x:Name="PageHost" Margin="0,0,12,4" Focusable="False" />
+                </ScrollViewer>
+            </Grid>
+        </Grid>
+    </ContentControl>
+</Window>

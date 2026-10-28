@@ -1,0 +1,77 @@
+<UserControl x:Class="Nimbus.UI.Pages.LaunchPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:l="clr-namespace:Nimbus.UI"
+             xmlns:c="clr-namespace:Nimbus.UI.Controls">
+    <StackPanel>
+
+        <TextBlock Style="{StaticResource SectionLabel}" Text="{l:T Launch.Roblox}" />
+        <Border Style="{StaticResource GlassPanel}">
+            <StackPanel>
+                <c:SettingRow Title="{l:T Launch.InstalledVersion}">
+                    <TextBlock x:Name="InstalledText" Style="{StaticResource ValueText}" />
+                </c:SettingRow>
+                <Border Style="{StaticResource RowSeparator}" />
+                <c:SettingRow x:Name="UpdateRow" Title="{l:T Launch.Updates}" Description="{l:T Launch.UpdatesDesc}">
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:Name="CheckButton" Content="{l:T Launch.CheckNow}" Click="Check_Click" />
+                        <Button x:Name="UpdateButton" Content="{l:T Launch.UpdateNow}" Style="{StaticResource PrimaryButton}" Margin="8,0,0,0"
+                                Visibility="Collapsed" Click="Update_Click" />
+                    </StackPanel>
+                </c:SettingRow>
+                <StackPanel x:Name="UpdateProgressPanel" Margin="18,0,18,16" Visibility="Collapsed">
+                    <ProgressBar x:Name="UpdateProgress" Style="{StaticResource GlowProgress}" IsIndeterminate="True" />
+                    <TextBlock x:Name="UpdateStatus" Style="{StaticResource CaptionText}" Margin="0,8,0,0" />
+                </StackPanel>
+                <Border Style="{StaticResource RowSeparator}" />
+                <c:SettingRow Title="{l:T Launch.RepairRoblox}" Description="{l:T Launch.RepairRobloxDesc}">
+                    <Button x:Name="RepairButton" Content="{l:T Launch.Repair}" Click="Repair_Click" />
+                </c:SettingRow>
+                <Border Style="{StaticResource RowSeparator}" />
+                <c:SettingRow Title="{l:T Launch.Play}" Description="{l:T Launch.PlayDesc}">
+                    <Button Content="{l:T Launch.LaunchRoblox}" Style="{StaticResource PrimaryButton}" Click="Launch_Click" />
+                </c:SettingRow>
+            </StackPanel>
+        </Border>
+
+        <TextBlock Style="{StaticResource SectionLabel}" Text="{l:T Launch.Launching}" />
+        <Border Style="{StaticResource GlassPanel}">
+            <StackPanel>
+                <c:SettingRow x:Name="ProtocolRow" Title="{l:T Launch.OpenRobloxLinksWith}"
+                              Description="{l:T Launch.OpenRobloxLinksWithDesc}">
+                    <Grid>
+                        <TextBlock x:Name="ProtocolOnText" Text="{l:T Launch.On}" Style="{StaticResource ValueText}" Foreground="{DynamicResource SuccessBrush}" />
+                        <Button x:Name="ProtocolButton" Content="{l:T Launch.MakeDefault}" Click="Protocol_Click" />
+                    </Grid>
+                </c:SettingRow>
+                <Border Style="{StaticResource RowSeparator}" />
+                <c:SettingRow Title="{l:T Launch.MultipleRobloxWindows}"
+                              Description="{l:T Launch.MultipleRobloxWindowsDesc}">
+                    <CheckBox x:Name="MultiInstanceToggle" Style="{StaticResource Switch}" Click="MultiInstance_Click" />
+                </c:SettingRow>
+                <Border Style="{StaticResource RowSeparator}" />
+                <c:SettingRow x:Name="DesktopRow" Title="{l:T Launch.DesktopIcon}"
+                              Description="{l:T Launch.DesktopIconDesc}">
+                    <CheckBox x:Name="DesktopToggle" Style="{StaticResource Switch}" Click="Desktop_Click" />
+                </c:SettingRow>
+            </StackPanel>
+        </Border>
+
+        <TextBlock Style="{StaticResource SectionLabel}" Text="{l:T Launch.RobloxVersion}" />
+        <Border Style="{StaticResource GlassPanel}">
+            <StackPanel>
+                <c:SettingRow Title="{l:T Launch.StayOnOneVersion}"
+                              Description="{l:T Launch.StayOnOneVersionDesc}">
+                    <CheckBox x:Name="PinToggle" Style="{StaticResource Switch}" Click="Pin_Click" />
+                </c:SettingRow>
+                <Border Style="{StaticResource RowSeparator}" />
+                <c:SettingRow x:Name="PinHashRow" Title="{l:T Launch.Version}" Description="{l:T Launch.VersionDesc}">
+                    <TextBox x:Name="PinHashBox" Width="230" TextChanged="PinHash_TextChanged" />
+                </c:SettingRow>
+                <TextBlock x:Name="PinError" Margin="18,0,18,14" FontSize="12" Foreground="{DynamicResource DangerBrush}"
+                           Text="{l:T Launch.ThatDoesnTLook}" Visibility="Collapsed" />
+            </StackPanel>
+        </Border>
+
+    </StackPanel>
+</UserControl>

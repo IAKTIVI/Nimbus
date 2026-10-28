@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Nimbus/Nimbus.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Nimbus.Tests/Nimbus.Tests.csproj" />
+  </Folder>
+</Solution>

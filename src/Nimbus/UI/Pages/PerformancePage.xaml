@@ -1,0 +1,66 @@
+<UserControl x:Class="Nimbus.UI.Pages.PerformancePage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:l="clr-namespace:Nimbus.UI"
+             xmlns:c="clr-namespace:Nimbus.UI.Controls">
+    <StackPanel>
+
+        <TextBlock Style="{StaticResource SectionLabel}" Text="{l:T Performance.Roblox}" />
+        <Border Style="{StaticResource GlassPanel}">
+            <StackPanel>
+                <c:SettingRow Title="{l:T Performance.CPUPriority}" IsStacked="True"
+                              Description="{l:T Performance.CPUPriorityDesc}">
+                    <ListBox x:Name="PriorityPicker" Style="{StaticResource Segmented}" SelectionChanged="Picker_Changed">
+                        <ListBoxItem Content="{l:T Performance.Normal}" />
+                        <ListBoxItem Content="{l:T Performance.AboveNormal}" />
+                        <ListBoxItem Content="{l:T Performance.High}" />
+                    </ListBox>
+                </c:SettingRow>
+                <Border Style="{StaticResource RowSeparator}" />
+                <c:SettingRow x:Name="FpsRow" Title="{l:T Performance.MaxFPS}" IsStacked="True">
+                    <ListBox x:Name="FpsPicker" Style="{StaticResource Segmented}" SelectionChanged="Picker_Changed">
+                        <ListBoxItem Content="{l:T Performance.RobloxSSetting}" />
+                        <ListBoxItem Content="60" />
+                        <ListBoxItem Content="120" />
+                        <ListBoxItem Content="144" />
+                        <ListBoxItem Content="165" />
+                        <ListBoxItem Content="240" />
+                    </ListBox>
+                </c:SettingRow>
+            </StackPanel>
+        </Border>
+
+        <TextBlock Style="{StaticResource SectionLabel}" Text="{l:T Performance.Windows}" />
+        <Border Style="{StaticResource GlassPanel}">
+            <StackPanel>
+                <c:SettingRow Title="{l:T Performance.HighPerformanceGraphicsCard}"
+                              Description="{l:T Performance.HighPerformanceGraphicsCardDesc}">
+                    <CheckBox x:Name="GpuToggle" Style="{StaticResource Switch}" Click="Toggle_Click" />
+                </c:SettingRow>
+                <Border Style="{StaticResource RowSeparator}" />
+                <c:SettingRow Title="{l:T Performance.TurnOffFullscreenOptimizatio}"
+                              Description="{l:T Performance.TurnOffFullscreenOptimizatioDesc}">
+                    <CheckBox x:Name="FsoToggle" Style="{StaticResource Switch}" Click="Toggle_Click" />
+                </c:SettingRow>
+            </StackPanel>
+        </Border>
+        <TextBlock Style="{StaticResource CaptionText}" Margin="6,10,0,0"
+                   Text="{l:T Performance.TheseOnlyChangeRoblox}" />
+
+        <TextBlock Style="{StaticResource SectionLabel}" Text="{l:T Performance.CleanUp}" />
+        <Border Style="{StaticResource GlassPanel}">
+            <StackPanel>
+                <StackPanel x:Name="CleanupList" />
+                <Border Style="{StaticResource RowSeparator}" />
+                <c:SettingRow Title="{l:T Performance.CleanOnEveryLaunch}"
+                              Description="{l:T Performance.CleanOnEveryLaunchDesc}">
+                    <CheckBox x:Name="CleanOnLaunchToggle" Style="{StaticResource Switch}" Click="Toggle_Click" />
+                </c:SettingRow>
+            </StackPanel>
+        </Border>
+        <TextBlock x:Name="CleanStatus" Style="{StaticResource CaptionText}" Margin="6,10,0,0" Visibility="Collapsed" />
+
+        <TextBlock Style="{StaticResource CaptionText}" Margin="6,14,0,0" Text="{l:T Performance.PriorityMaxFPSAnd}" />
+
+    </StackPanel>
+</UserControl>

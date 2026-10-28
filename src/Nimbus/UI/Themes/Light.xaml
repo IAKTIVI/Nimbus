@@ -1,0 +1,47 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=System.Runtime">
+
+    <!-- Light take on the Lumen glass recipe -->
+    <SolidColorBrush x:Key="BaseTintBrush" Color="#9EF6F6FA" />
+    <SolidColorBrush x:Key="BaseSolidBrush" Color="#FFF1F1F5" />
+
+    <SolidColorBrush x:Key="GlassBrush" Color="#8CFFFFFF" />
+    <SolidColorBrush x:Key="GlassHoverBrush" Color="#0F000000" />
+    <SolidColorBrush x:Key="GlassBorderBrush" Color="#12000000" />
+    <SolidColorBrush x:Key="GlassHighlightBrush" Color="#B3FFFFFF" />
+    <SolidColorBrush x:Key="PopupBrush" Color="#F2FAFAFC" />
+
+    <SolidColorBrush x:Key="TextPrimaryBrush" Color="#FF16161C" />
+    <SolidColorBrush x:Key="TextSecondaryBrush" Color="#A316161C" />
+    <SolidColorBrush x:Key="TextTertiaryBrush" Color="#6616161C" />
+
+    <SolidColorBrush x:Key="InputBrush" Color="#B3FFFFFF" />
+    <SolidColorBrush x:Key="InputHoverBrush" Color="#E6FFFFFF" />
+    <SolidColorBrush x:Key="ToggleOffBrush" Color="#26000000" />
+    <SolidColorBrush x:Key="TrackBrush" Color="#17000000" />
+    <SolidColorBrush x:Key="ThumbBrush" Color="#21000000" />
+    <SolidColorBrush x:Key="ThumbHoverBrush" Color="#3D000000" />
+
+    <!-- Inverted primary button: dark pill, white text -->
+    <SolidColorBrush x:Key="PrimaryButtonBrush" Color="#FF16161C" />
+    <SolidColorBrush x:Key="PrimaryButtonTextBrush" Color="#FFFFFFFF" />
+
+    <SolidColorBrush x:Key="CloseHoverBrush" Color="#FFC42B1C" />
+    <SolidColorBrush x:Key="DangerBrush" Color="#FFD92D20" />
+    <SolidColorBrush x:Key="DangerBackgroundBrush" Color="#14FF3B30" />
+    <SolidColorBrush x:Key="DangerBorderBrush" Color="#33FF3B30" />
+    <SolidColorBrush x:Key="DangerTextBrush" Color="#FFB42318" />
+    <SolidColorBrush x:Key="SuccessBrush" Color="#FF16A34A" />
+    <SolidColorBrush x:Key="SuccessBackgroundBrush" Color="#1F16A34A" />
+    <SolidColorBrush x:Key="SuccessBorderBrush" Color="#4D16A34A" />
+    <SolidColorBrush x:Key="SegmentSelectedBrush" Color="#FFFFFFFF" />
+
+    <sys:Double x:Key="GlowAOpacity">0.26</sys:Double>
+    <sys:Double x:Key="GlowBOpacity">0.16</sys:Double>
+
+    <!-- Placeholders, replaced at runtime from Settings.AccentColor -->
+    <Color x:Key="AccentColor">#0A84FF</Color>
+    <SolidColorBrush x:Key="AccentBrush" Color="#0A84FF" />
+
+</ResourceDictionary>

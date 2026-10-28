@@ -1,0 +1,54 @@
+<UserControl x:Class="Nimbus.UI.Pages.AppearancePage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:l="clr-namespace:Nimbus.UI"
+             xmlns:c="clr-namespace:Nimbus.UI.Controls">
+    <StackPanel>
+
+        <TextBlock Style="{StaticResource SectionLabel}" Text="{l:T Appearance.Look}" />
+        <Border Style="{StaticResource GlassPanel}">
+            <StackPanel>
+                <c:SettingRow Title="{l:T Appearance.Language}" IsStacked="True" Description="{l:T Appearance.LanguageDesc}">
+                    <ListBox x:Name="LanguagePicker" Style="{StaticResource Segmented}" HorizontalAlignment="Left" SelectionChanged="Language_Changed" />
+                </c:SettingRow>
+                <Border Style="{StaticResource RowSeparator}" />
+                <c:SettingRow Title="{l:T Appearance.Theme}" IsStacked="True" Description="{l:T Appearance.ThemeDesc}">
+                    <ListBox x:Name="ThemePicker" Style="{StaticResource Segmented}" SelectionChanged="Theme_Changed">
+                        <ListBoxItem Content="{l:T Appearance.FollowWindows}" />
+                        <ListBoxItem Content="{l:T Appearance.Light}" />
+                        <ListBoxItem Content="{l:T Appearance.Dark}" />
+                    </ListBox>
+                </c:SettingRow>
+                <Border Style="{StaticResource RowSeparator}" />
+                <c:SettingRow Title="{l:T Appearance.AccentColor}" IsStacked="True" Description="{l:T Appearance.AccentColorDesc}">
+                    <StackPanel>
+                        <WrapPanel x:Name="Swatches" />
+                        <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                            <TextBox x:Name="HexBox" Width="120" TextChanged="Hex_TextChanged" />
+                            <TextBlock Text="{l:T Appearance.AnyColorAsRRGGBB}" Style="{StaticResource CaptionText}" Margin="12,0,0,0" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </StackPanel>
+                </c:SettingRow>
+            </StackPanel>
+        </Border>
+
+        <TextBlock Style="{StaticResource SectionLabel}" Text="{l:T Appearance.LaunchWindow}" />
+        <Border Style="{StaticResource GlassPanel}">
+            <StackPanel>
+            <c:SettingRow Title="{l:T Appearance.WhileRobloxStarts}" IsStacked="True"
+                          Description="{l:T Appearance.WhileRobloxStartsDesc}">
+                <ListBox x:Name="LaunchPicker" Style="{StaticResource Segmented}" SelectionChanged="Launch_Changed">
+                    <ListBoxItem Content="{l:T Appearance.GlassCard}" />
+                    <ListBoxItem Content="{l:T Appearance.MinimalBar}" />
+                    <ListBoxItem Content="{l:T Appearance.HiddenUnlessUpdating}" />
+                </ListBox>
+            </c:SettingRow>
+            <Border Style="{StaticResource RowSeparator}" />
+            <c:SettingRow Title="{l:T Appearance.Preview}" Description="{l:T Appearance.PreviewDesc}">
+                <Button Content="{l:T Appearance.Preview}" Style="{StaticResource PrimaryButton}" Click="Preview_Click" />
+            </c:SettingRow>
+            </StackPanel>
+        </Border>
+
+    </StackPanel>
+</UserControl>

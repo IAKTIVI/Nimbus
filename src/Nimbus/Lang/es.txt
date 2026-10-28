@@ -1,0 +1,563 @@
+# Nimbus UI text, Español. Copy of en.txt with the texts translated; keys and {0}, {1}... stay as they are.
+
+# CustomAppCard
+Apps.OnOff = Activado / desactivado
+Apps.Edit = Editar
+Apps.Remove = Quitar
+Apps.LaunchArguments = Argumentos de inicio
+Apps.LaunchArgumentsDesc = Opcional. Se pasan al programa al iniciarlo, como en un acceso directo.
+Apps.OnlyForTheseGames = Solo para estos juegos
+Apps.OnlyForTheseGamesDesc = Déjalo vacío para que se abra siempre con Roblox. Con juegos, se abre cuando entras en uno de ellos.
+Apps.AddGame = Añadir juego
+Apps.FromYourHistory = De tu historial
+Apps.OrPasteAGame = O pega el enlace de un juego
+Apps.Add = Añadir
+Apps.WaitBeforeStarting = Esperar antes de abrir
+Apps.WaitBeforeStartingDesc = Le da a Roblox un momento para cargar primero.
+Apps.NoWait = Sin espera
+Apps.5S = 5 s
+Apps.10S = 10 s
+Apps.30S = 30 s
+Apps.1Min = 1 min
+Apps.CloseItWhenRoblox = Cerrarlo cuando se cierre Roblox
+Apps.CloseItWhenRobloxDesc = Solo si lo abrió Nimbus. Los programas que abriste tú siguen abiertos.
+
+# AboutPage
+About.ALightweightRobloxLauncher = Un launcher ligero para Roblox.
+About.Updates = Actualizaciones
+About.NimbusUpdates = Actualizaciones de Nimbus
+About.NimbusUpdatesDesc = Comprobando…
+About.Download = Descargar
+About.UpdateAutomatically = Actualizar automáticamente
+About.UpdateAutomaticallyDesc = Instala las nuevas versiones de Nimbus por sí solo, justo antes de que se abra Roblox. Nunca mientras juegas.
+About.Files = Archivos
+About.NimbusFolder = Carpeta de Nimbus
+About.Open = Abrir
+About.Logs = Registros
+About.LogsDesc = Útiles cuando algo sale mal.
+About.StartOver = Empezar de nuevo
+About.ResetAllSettings = Restablecer todos los ajustes
+About.ResetAllSettingsDesc = Devuelve todos los ajustes de Nimbus a como estaban al instalarlo. Tu historial de juegos y tus archivos guardados se mantienen.
+About.Reset = Restablecer…
+About.UninstallNimbus = Desinstalar Nimbus
+About.UninstallNimbusDesc = Quita Nimbus y la copia de Roblox que instaló. Los enlaces de Roblox vuelven a abrir la app oficial. Tus ajustes, historial y mods se quedan, así que una reinstalación los recupera.
+About.Uninstall = Desinstalar…
+
+# AppearancePage
+Appearance.Look = Estilo
+Appearance.Theme = Tema
+Appearance.ThemeDesc = Oscuro es el estilo de cristal esmerilado para el que se diseñó Nimbus. «Como Windows» sigue tu ajuste de Windows.
+Appearance.FollowWindows = Como Windows
+Appearance.Light = Claro
+Appearance.Dark = Oscuro
+Appearance.AccentColor = Color de acento
+Appearance.AccentColorDesc = Para botones, interruptores, la barra de progreso y el brillo del fondo.
+Appearance.AnyColorAsRRGGBB = Cualquier color como #RRGGBB
+Appearance.LaunchWindow = Ventana de inicio
+Appearance.WhileRobloxStarts = Mientras se abre Roblox
+Appearance.WhileRobloxStartsDesc = «Oculta» sigue mostrando la tarjeta si Roblox necesita actualizarse o algo sale mal.
+Appearance.GlassCard = Tarjeta de cristal
+Appearance.MinimalBar = Barra mínima
+Appearance.HiddenUnlessUpdating = Oculta salvo al actualizar
+Appearance.Preview = Vista previa
+Appearance.PreviewDesc = Muestra la tarjeta de inicio unos segundos. Roblox no se abre.
+
+# EnginePage
+Engine.Profile = Perfil
+Engine.ProfileDesc = Los cambios se aplican la próxima vez que se abra Roblox.
+Engine.ChangeProfile = Cambiar perfil
+Engine.Rendering = Renderizado
+Engine.GraphicsAPI = API gráfica
+Engine.GraphicsAPIDesc = DirectX 11 o Vulkan pueden ir más fluidos en algunos PC. Automático suele ser lo mejor.
+Engine.Automatic = Automático
+Engine.DirectX11 = DirectX 11
+Engine.Vulkan = Vulkan
+Engine.OpenGL = OpenGL
+Engine.AntiAliasing = Antialiasing
+Engine.AntiAliasingDesc = Suaviza los bordes dentados. Desactivado es lo más rápido.
+Engine.Off = Desactivado
+Engine.2x = 2x
+Engine.4x = 4x
+Engine.TextureQuality = Calidad de texturas
+Engine.TextureQualityDesc = Más baja usa menos memoria de vídeo y carga más rápido.
+Engine.Lowest = Mínima
+Engine.Low = Baja
+Engine.Medium = Media
+Engine.High = Alta
+Engine.GraphicsQuality = Calidad gráfica
+Engine.GraphicsQualityDesc = Fija el nivel de calidad para que el control de Roblox no lo cambie.
+Engine.Highest = Máxima
+Engine.Visuals = Visual
+Engine.GraySky = Cielo gris
+Engine.GraySkyDesc = Cambia el cielo por un gris plano. Un poco más de FPS y una vista más limpia.
+Engine.HideGrass = Ocultar hierba
+Engine.HideGrassDesc = Quita la hierba del terreno para ver mejor los objetos en el suelo.
+Engine.StillGrass = Hierba quieta
+Engine.StillGrassDesc = La hierba deja de moverse con el viento.
+Engine.SimpleMeshes = Modelos simples
+Engine.SimpleMeshesDesc = Muestra versiones con menos detalle de los objetos complejos. Bastantes más FPS en PC lentos.
+Engine.FreezeLighting = Congelar iluminación
+Engine.FreezeLightingDesc = La iluminación deja de actualizarse cuando las cosas se mueven. Muchos más FPS, pero las sombras pueden verse mal.
+Engine.Display = Pantalla
+Engine.ExclusiveFullscreen = Pantalla completa exclusiva
+Engine.ExclusiveFullscreenDesc = Pulsa Alt+Enter en Roblox para una pantalla completa real. Puede reducir el retraso de entrada.
+Engine.FullResolution = Resolución completa
+Engine.FullResolutionDesc = Evita que Roblox baje su resolución cuando el escalado de Windows está por encima del 100 %. Más nítido, un poco más lento.
+Engine.AdvancedFastFlags = FastFlags avanzadas
+Engine.Works = Funciona
+Engine.IgnoredByRoblox = Roblox la ignora
+Engine.ShowAllowedFlags = Ver flags permitidas
+
+# HistoryPage
+History.ClearHistory = Borrar historial
+History.GamesYouPlayedThrough = Juegos a los que jugaste con Nimbus. «Volver al servidor» te lleva al mismo servidor, si sigue activo.
+
+# IntegrationsPage
+Integrations.MusicCardInRoblox = Tarjeta de música en Roblox
+Integrations.MusicCardInRobloxDesc = Un pequeño reproductor en Roblox para lo que suene en este PC: la app de Spotify, YouTube u otras webs en tu navegador, y más. Sin iniciar sesión. Hacer clic en él nunca te saca del juego. Arrástralo para moverlo (doble clic lo devuelve a su sitio) y haz clic en la barra para saltar en la canción.
+Integrations.Discord = Discord
+Integrations.ShowWhatYouRe = Mostrar a qué juegas
+Integrations.ShowWhatYouReDesc = El nombre, el icono y el tiempo de juego en tu perfil de Discord.
+Integrations.DiscordApplicationID = ID de aplicación de Discord
+Integrations.DiscordApplicationIDDesc = Discord solo muestra un estado para una app registrada. Haz clic en «Crear una», inicia sesión, pulsa New Application, llámala «Roblox» (tu perfil dirá «Jugando a Roblox») y pega aquí su Application ID.
+Integrations.CreateOne = Crear una
+Integrations.JoinButton = Botón para unirse
+Integrations.JoinButtonDesc = Añade un botón para que tus amigos de Discord puedan unirse a tu servidor.
+Integrations.LetGamesSetYour = Dejar que los juegos pongan tu estado
+Integrations.LetGamesSetYourDesc = Los juegos compatibles (BloxstrapRPC) pueden mostrar más información, como tu nivel o el mapa.
+Integrations.WhileYouPlay = Mientras juegas
+Integrations.ServerLocation = Ubicación del servidor
+Integrations.ServerLocationDesc = Un aviso con la ciudad y el país del servidor al entrar. Solo se consulta la dirección del servidor (con ipinfo.io).
+Integrations.GameHistory = Historial de juegos
+Integrations.GameHistoryDesc = Recuerda los juegos y servidores en los que jugaste, para volver a ellos desde la página Historial.
+Integrations.AutoRejoin = Reconexión automática
+Integrations.AutoRejoinDesc = Si pierdes la conexión o te expulsan por inactividad, Nimbus vuelve a entrar en el mismo servidor. Hasta 3 veces en 10 minutos; nunca después de que salgas tú o te expulse el juego.
+Integrations.YourPrograms = Tus programas
+Integrations.StartYourOwnPrograms = Abre tus propios programas con Roblox
+Integrations.StartYourOwnProgramsDesc = Por ejemplo, una herramienta de macros, OBS o una app de chat de voz. Si quieres, solo para ciertos juegos, tras una breve espera y cerrándose otra vez con Roblox.
+Integrations.AddProgram = Añadir programa…
+Integrations.TheseRunFromA = Funcionan desde un pequeño icono en la bandeja mientras Roblox está abierto y se detienen al cerrarlo. Empiezan a funcionar la próxima vez que abras Roblox con Nimbus.
+
+# LaunchPage
+Launch.Roblox = Roblox
+Launch.InstalledVersion = Versión instalada
+Launch.Updates = Actualizaciones
+Launch.UpdatesDesc = Comprobando…
+Launch.CheckNow = Comprobar ahora
+Launch.UpdateNow = Actualizar ahora
+Launch.RepairRoblox = Reparar Roblox
+Launch.RepairRobloxDesc = Descarga una copia nueva de Roblox. Úsalo si Roblox se cierra solo o no se abre. Tus ajustes y mods se mantienen.
+Launch.Repair = Reparar
+Launch.Play = Jugar
+Launch.PlayDesc = Abre la app de Roblox con Nimbus.
+Launch.LaunchRoblox = Abrir Roblox
+Launch.Launching = Inicio
+Launch.OpenRobloxLinksWith = Abrir los enlaces de Roblox con Nimbus
+Launch.OpenRobloxLinksWithDesc = El botón Jugar de roblox.com se abre con Nimbus.
+Launch.On = Activado
+Launch.MakeDefault = Usar por defecto
+Launch.MultipleRobloxWindows = Varias ventanas de Roblox
+Launch.MultipleRobloxWindowsDesc = Abre varios clientes de Roblox a la vez, por ejemplo para cuentas secundarias.
+Launch.DesktopIcon = Icono en el escritorio
+Launch.DesktopIconDesc = Un icono «Roblox (Nimbus)» en tu escritorio que abre Roblox con Nimbus.
+Launch.RobloxVersion = Versión de Roblox
+Launch.StayOnOneVersion = Quedarse en una versión
+Launch.StayOnOneVersionDesc = Se salta las actualizaciones de Roblox. Roblox suele dejar de aceptar versiones antiguas en pocos días.
+Launch.Version = Versión
+Launch.VersionDesc = Se parece a version-5a21b87bbc2641cf
+Launch.ThatDoesnTLook = Eso no parece una versión de Roblox.
+
+# ModsPage
+Mods.RemoveWaterTexture = Quitar la textura del agua
+Mods.RemoveWaterTextureDesc = Oculta la textura de olas del agua para ver mejor a través de ella. Lo clara que se ve el agua también depende de los ajustes de agua de cada juego.
+Mods.DeathSound = Sonido de muerte
+Mods.WhenYourCharacterDies = Cuando tu personaje muere
+Mods.WhenYourCharacterDiesDesc = Clásico es el antiguo «oof», sacado del archivo que Roblox todavía incluye.
+Mods.Default = Predeterminado
+Mods.ClassicOof = Oof clásico
+Mods.Cursor = Cursor
+Mods.MouseCursor = Cursor del ratón
+Mods.MouseCursorDesc = Predeterminado y Clásico vienen de los archivos de Roblox. Los demás los dibuja Nimbus, así que siempre están incluidos.
+Mods.YourCursor = Tu cursor
+Mods.YourCursorDesc = Aún no has elegido ninguna imagen. Vale cualquiera; se ajusta a 64x64.
+Mods.ChooseAnother = Elegir otra…
+Mods.Font = Fuente
+Mods.CustomFont = Fuente propia
+Mods.FontFile = Archivo de fuente
+Mods.FontFileDesc = Aún no has elegido ninguna fuente (.ttf u .otf).
+Mods.ChooseFont = Elegir fuente…
+Mods.TheQuickBrownFox = El veloz murciélago hindú comía feliz cardillo y kiwi. 0123456789
+Mods.YourMods = Tus mods
+Mods.ModsFolder = Carpeta de mods
+Mods.OpenFolder = Abrir carpeta
+Mods.ModsAreAppliedEvery = Los mods se aplican cada vez que se abre Roblox, así que las actualizaciones de Roblox nunca los deshacen. Al desactivar uno vuelve el archivo original de Roblox.
+
+# PerformancePage
+Performance.Roblox = Roblox
+Performance.CPUPriority = Prioridad de CPU
+Performance.CPUPriorityDesc = Da a Roblox más tiempo de CPU que a otras apps. Alta puede hacer que las apps en segundo plano vayan más lentas mientras juegas.
+Performance.Normal = Normal
+Performance.AboveNormal = Superior a lo normal
+Performance.High = Alta
+Performance.MaxFPS = FPS máximos
+Performance.RobloxSSetting = Ajuste de Roblox
+Performance.Windows = Windows
+Performance.HighPerformanceGraphicsCard = Tarjeta gráfica de alto rendimiento
+Performance.HighPerformanceGraphicsCardDesc = En portátiles con dos chips gráficos, Windows usa el más rápido para Roblox.
+Performance.TurnOffFullscreenOptimizatio = Desactivar optimizaciones de pantalla completa
+Performance.TurnOffFullscreenOptimizatioDesc = Una opción de Windows que puede reducir el retraso de entrada en pantalla completa en algunos PC.
+Performance.TheseOnlyChangeRoblox = Solo cambian Roblox, y Nimbus las quita otra vez cuando las desactivas o lo desinstalas.
+Performance.CleanUp = Limpieza
+Performance.CleanOnEveryLaunch = Limpiar en cada inicio
+Performance.CleanOnEveryLaunchDesc = Borra los registros de Roblox de más de 3 días y los archivos temporales cada vez que abres Roblox con Nimbus.
+Performance.PriorityMaxFPSAnd = La prioridad, los FPS máximos y las opciones de Windows se aplican la próxima vez que se abra Roblox.
+
+# ProfilesPage
+Profiles.Presets = Predefinidos
+Profiles.YourProfiles = Tus perfiles
+Profiles.SaveCurrentSettings = Guardar los ajustes actuales
+Profiles.SaveCurrentSettingsDesc = Guarda lo que está puesto en la página Motor como un perfil nuevo.
+Profiles.ProfileName = Nombre del perfil
+Profiles.Save = Guardar
+Profiles.Reset = Restablecer
+Profiles.RobloxDefaults = Valores de Roblox
+Profiles.RobloxDefaultsDesc = Desactiva todas las opciones del motor. La pantalla completa exclusiva y las flags avanzadas se quedan como están.
+Profiles.ProfilesSetTheOptions = Los perfiles cambian las opciones de la página Motor. Los cambios se aplican la próxima vez que se abra Roblox.
+
+# LaunchWindow
+Card.Starting = Iniciando…
+Card.OpenLog = Abrir registro
+Card.TryAgain = Reintentar
+Card.Cancel = Cancelar
+
+# MainWindow
+Main.Minimize = Minimizar
+Main.Maximize = Maximizar
+Main.Close = Cerrar
+Main.Launch = Inicio
+Main.Engine = Motor
+Main.Mods = Mods
+Main.Performance = Rendimiento
+Main.Integrations = Integraciones
+Main.History = Historial
+Main.Profiles = Perfiles
+Main.Appearance = Apariencia
+Main.About = Acerca de
+
+# MusicOverlay
+Music.NimbusMusic = Música de Nimbus
+Music.Shuffle = Aleatorio
+Music.Previous = Anterior
+Music.Next = Siguiente
+Music.Repeat = Repetir
+
+# ThanksWindow
+Thanks.Close = Cerrar
+Thanks.ThanksForInstallingNimbus = Gracias por instalar Nimbus
+Thanks.NimbusIsYourRoblox = Nimbus es tu launcher de Roblox
+Thanks.PlayRoblox = Jugar a Roblox
+Thanks.Settings = Ajustes
+Thanks.JoinTheNimbusDiscord = Únete al Discord de Nimbus
+Thanks.Discord = Discord
+Thanks.NimbusOnGitHub = Nimbus en GitHub
+Thanks.GitHub = GitHub
+
+# WelcomeWindow
+Welcome.InstallNimbus = Instalar Nimbus
+Welcome.Close = Cerrar
+Welcome.WelcomeToNimbus = Te damos la bienvenida a Nimbus
+Welcome.ALightweightLauncherFor = Un launcher ligero para Roblox.
+Welcome.InstallsToYourUser = Se instala en tu carpeta de usuario, sin permisos de administrador
+Welcome.ThePlayButtonOn = El botón Jugar de roblox.com abre Nimbus
+Welcome.DownloadsRobloxStraightFrom = Descarga Roblox directamente de los servidores de Roblox
+Welcome.YouCanUninstallIt = Puedes desinstalarlo cuando quieras desde la Configuración de Windows.
+
+# App (code)
+App.InstallFailed = No se pudo instalar Nimbus:\n\n{0}
+App.CloseRobloxFirst = Cierra Roblox primero y vuelve a intentarlo.
+App.UninstallConfirm = ¿Desinstalar Nimbus?\n\nSe quitarán Nimbus y la copia de Roblox que instaló. Los enlaces de Roblox volverán a abrir la app oficial de Roblox (si está instalada). Tus ajustes, historial y mods se quedan, así que una reinstalación los recupera.
+App.Uninstalled = Nimbus se ha desinstalado.
+App.UninstallFailed = La desinstalación no terminó:\n\n{0}
+App.Crashed = Algo salió mal:\n\n{0}\n\nLos detalles están en el archivo de registro:\n{1}
+
+# LaunchWindow (code)
+Card.StartingRoblox = Abriendo Roblox…
+Card.Failed = No se pudo abrir Roblox
+Card.Offline = No se pudo conectar con los servidores de Roblox. Revisa tu conexión a internet y vuelve a intentarlo.
+Card.Timeout = La descarga dejó de responder. Revisa tu conexión a internet y vuelve a intentarlo.
+Card.DiskFull = Tu disco está lleno. Libera algo de espacio y vuelve a intentarlo.
+Card.Close = Cerrar
+
+# WelcomeWindow (code)
+Welcome.UpdateTitle = Actualizar Nimbus
+Welcome.UpdateLead = Nimbus {0} está instalado. Esta es la versión {1}.
+Welcome.UpdateHint = Tus ajustes se quedan como están.
+Welcome.FilesInUse = Algunos archivos de Nimbus están en uso. Cierra Roblox y las ventanas de Nimbus abiertas y vuelve a intentarlo.
+
+# MainWindow (code)
+Main.Restore = Restaurar
+
+# AboutPage (code)
+About.Version = Versión {0}
+About.NoRepository = La búsqueda de actualizaciones se activa cuando Nimbus tenga una página de GitHub donde publicar versiones.
+About.Latest = Tienes la última versión ({0}).
+About.AvailableAuto = Nimbus {0} está disponible. Se instala solo la próxima vez que abras Roblox.
+About.Available = Nimbus {0} está disponible. Descárgalo y ábrelo para actualizar; tus ajustes se mantienen.
+About.ResetConfirm = ¿Restablecer todos los ajustes de Nimbus?\n\nSe restablecen las opciones del motor, los mods, las opciones de rendimiento y tus perfiles guardados. Nimbus se reinicia después.
+
+# AppearancePage (code)
+Appearance.PictureFilter = Imágenes
+
+# MusicOverlay (code)
+Music.Pause = Pausa
+Music.Play = Reproducir
+
+# LaunchPage (code)
+LaunchPage.NotInstalled = Aún no está instalado
+LaunchPage.InstallFirst = Instala Nimbus primero.
+LaunchPage.StayingPinned = Se queda en la versión fijada.
+LaunchPage.PinnedNextLaunch = La versión fijada se instalará en el próximo inicio.
+LaunchPage.InstallItNow = Instalarla ahora
+LaunchPage.Checking = Comprobando…
+LaunchPage.NotInstalledLatest = Roblox aún no está instalado. La última versión es {0}.
+LaunchPage.InstallNow = Instalar ahora
+LaunchPage.UpToDate = Roblox está actualizado.
+LaunchPage.UpdateAvailable = Actualización disponible: {0}. También se instala sola en el próximo inicio.
+LaunchPage.CheckFailed = No se pudieron buscar actualizaciones. ¿Tienes conexión?
+LaunchPage.UpdateFailed = La actualización falló: {0}
+LaunchPage.CloseForRepair = Cierra Roblox primero y luego pulsa Reparar otra vez.
+LaunchPage.RepairFailed = No se pudieron quitar los archivos antiguos: {0}
+
+# PerformancePage (code)
+Performance.CleanLogs = Registros de Roblox
+Performance.CleanLogsDesc = Roblox escribe un registro cada vez que se abre. Los que está usando ahora se mantienen.
+Performance.CleanTemp = Archivos temporales
+Performance.CleanTempDesc = Sonidos y descargas sobrantes en la carpeta temporal de Windows.
+Performance.CleanInstaller = Descargas del instalador de Roblox
+Performance.CleanInstallerDesc = Lo que el instalador de Roblox descargó para el reproductor y Studio. Lo vuelve a descargar si alguna vez lo necesita.
+Performance.CleanCache = Caché de recursos
+Performance.CleanCacheDesc = Recursos de juegos que Roblox guardó. Se vuelven a descargar al jugar, así que los juegos cargan más lento la primera vez.
+Performance.CleanNimbus = Restos de descargas de Nimbus
+Performance.CleanNimbusDesc = Paquetes de Roblox que descargó Nimbus. No hacen falta después de instalar.
+Performance.FpsInfo = Ajusta la velocidad de fotogramas máxima de Roblox antes de abrirlo. Roblox no pasa de 240 y las flags para desbloquear FPS ya no funcionan.
+Performance.FpsNow = Roblox está en {0} ahora mismo.
+Performance.FpsNoLimit = Roblox no tiene límite ahora mismo.
+Performance.Clean = Limpiar
+Performance.CloseRobloxFirst = Cierra Roblox y Studio primero.
+Performance.Empty = Vacío
+Performance.Cleaning = Limpiando {0}…
+Performance.Freed = {0}: {1} liberados.
+Performance.Skipped = {0} archivos estaban en uso y se mantienen.
+Performance.CleanFailed = No se pudo limpiar {0}: {1}
+
+# ProfilesPage (code)
+Profiles.PotatoDesc = Los máximos FPS: texturas y calidad mínimas, sin antialiasing, cielo gris, sin hierba, modelos simples, iluminación congelada.
+Profiles.BalancedDesc = El aspecto normal de Roblox, nítido en pantallas con escalado alto.
+Profiles.QualityDesc = Los mejores gráficos: texturas y nivel de calidad máximos, antialiasing 4x.
+Profiles.InUse = En uso
+Profiles.NoneSaved = Aún no hay perfiles guardados. Configura todo en la página Motor y guárdalo aquí.
+Profiles.Rename = Renombrar
+
+# HistoryPage (code)
+History.Empty = Aún no hay nada. Los juegos a los que juegues con Nimbus aparecen aquí.
+History.Off = El historial de juegos está desactivado en la página Integraciones.
+History.By = de {0}
+History.Play = Jugar
+History.JustNow = ahora mismo
+History.MinAgo = hace {0} min
+History.HoursAgo = hace {0} h
+History.Yesterday = ayer
+
+# ModsPage (code)
+Mods.NoFontFile = Aún no has elegido ninguna fuente (.ttf u .otf).
+Mods.FolderInfo = Los archivos de aquí reemplazan los archivos de Roblox en el mismo sitio, por ejemplo content\sounds\ouch.ogg.
+Mods.OneFile = Ahora tiene 1 archivo.
+Mods.Files = Ahora tiene {0} archivos.
+Mods.SoundFilter = Sonidos
+Mods.CursorDefault = Predeterminado
+Mods.CursorClassic = Clásico
+Mods.CursorOwn = El mío
+Mods.FontFilter = Fuentes
+
+# EnginePage (code)
+Engine.CustomProfile = Personalizado
+Engine.InvalidJson = Esto aún no es JSON válido, así que no se usará ninguna de estas flags.
+Engine.CheckLine = Revisa la línea {0}.
+Engine.HideAllowed = Ocultar flags permitidas
+Engine.ShowAllowed = Ver flags permitidas
+
+# IntegrationsPage (code)
+Integrations.ProgramFilter = Programas
+Integrations.PickProgram = Elige un programa para abrir con Roblox
+Integrations.IdNeeded = Necesario para el estado de Discord
+Integrations.IdGood = Correcto
+Integrations.IdBad = Eso no es un Application ID (es un número largo)
+
+# CustomAppCard (code)
+Apps.NotFound = No se encuentra el programa
+Apps.StartsWithRoblox = Se abre con Roblox
+Apps.StartsOnJoin = Se abre al entrar en {0}
+Apps.AfterSeconds = tras {0} s
+Apps.AfterMinute = tras 1 min
+Apps.ClosesWithRoblox = se cierra con Roblox
+Apps.Done = Listo
+Apps.BadLink = Eso no es el enlace de un juego. Cópialo de la página del juego en roblox.com.
+
+# While Roblox runs (code)
+Watcher.ServerLocation = Servidor
+Watcher.SeeGamePage = Ver página del juego
+Watcher.JoinServer = Unirse al servidor
+Watcher.RejoinStopped = Reconexión automática detenida
+Watcher.RejoinLimit = Ya se reconectó {0} veces en 10 minutos
+Watcher.Disconnected = Desconectado (error {0})
+Watcher.Rejoining = Volviendo a entrar en {0}…
+Watcher.TheGame = el juego
+Watcher.Starting = Roblox se está abriendo…
+Watcher.OpenNimbus = Abrir Nimbus
+Watcher.StopExtras = Detener los extras de Nimbus hasta el próximo inicio
+Watcher.InApp = En la app de Roblox
+
+# Roblox download (code)
+Deploy.Checking = Buscando actualizaciones…
+Deploy.Waiting = Esperando a otro inicio de Nimbus…
+
+# RobloxDeployment.cs (code)
+Deploy.Offline = No se pudo conectar con Roblox para buscar actualizaciones.
+Deploy.PackageList = Obteniendo la lista de paquetes…
+Deploy.Downloading = Descargando Roblox… {0}
+Deploy.Finishing = Terminando…
+Deploy.Missing = Los servidores de Roblox no tienen {0}. ¿Es correcta la versión?
+Deploy.Failed = No se pudo descargar {0} de ningún servidor de Roblox.
+
+# Installer (code)
+Installer.Sandboxed = Nimbus se abrió desde dentro de otra app, así que Windows escondería la instalación en el almacenamiento privado de esa app. Abre Nimbus.exe desde el Explorador de archivos e instálalo desde ahí.
+
+# Mod files (code)
+ModFiles.PickSound = Elige un sonido (.ogg, .mp3 o .wav).
+ModFiles.PickFont = Elige una fuente (.ttf u .otf).
+ModFiles.BadImage = Ese archivo no es una imagen que Nimbus pueda leer. Prueba con un .png.
+ModFiles.BadFont = Ese archivo no es una fuente que Nimbus pueda leer.
+
+# Cursor presets (code)
+Cursor.dot = Punto
+Cursor.circle = Círculo
+Cursor.circle-dot = Círculo + punto
+Cursor.crosshair = Mira
+Cursor.gap-crosshair = Mira abierta
+
+# Engine summaries (code)
+Profile.NameEmpty = Ponle un nombre al perfil.
+Profile.NameLong = El nombre debe tener menos de {0} caracteres.
+Profile.NameTaken = Ya existe un perfil con ese nombre.
+Summary.AaOff = AA: desactivado
+Summary.Aa = AA: {0}x
+Summary.Textures = Texturas: {0}
+Summary.Texture0 = Mínima
+Summary.Texture1 = Baja
+Summary.Texture2 = Media
+Summary.Texture3 = Alta
+Summary.Quality = Calidad: {0}/21
+Summary.GraySky = Cielo gris
+Summary.NoGrass = Sin hierba
+Summary.StillGrass = Hierba quieta
+Summary.SimpleMeshes = Modelos simples
+Summary.FrozenLighting = Iluminación congelada
+Summary.FullResolution = Resolución completa
+
+# FastFlags (code)
+Flags.Braces = Las flags deben ir entre { llaves }.
+Flags.BadValue = {0} necesita un texto, un número o true/false.
+
+# Auto-update (code)
+Update.Downloading = Actualizando Nimbus a {0}…
+Update.Installing = Instalando la actualización de Nimbus…
+
+# HistoryPage (code)
+Watcher.JoinServer2 = Volver al servidor
+
+# ProfilesPage (code)
+Profiles.Use = Usar
+Profiles.Delete = Eliminar
+
+# AppearancePage (code)
+Appearance.ColorBlue = Azul
+Appearance.ColorPurple = Morado
+Appearance.ColorPink = Rosa
+Appearance.ColorOrange = Naranja
+Appearance.ColorGreen = Verde
+Appearance.ColorTeal = Turquesa
+Appearance.ColorGraphite = Grafito
+
+# Languages
+Welcome.Language = Idioma
+Appearance.Language = Idioma
+Appearance.LanguageDesc = Nimbus se reinicia para cambiarlo.
+
+# Playtime
+History.MostPlayed = Más jugados
+History.Recent = Recientes
+Stats.UnderMinute = menos de un minuto
+Stats.Minutes = {0} min
+Stats.Hours = {0} h {1} min
+Stats.OneSession = 1 sesión
+Stats.Sessions = {0} sesiones
+
+# Top bar
+Main.Play = Jugar
+Main.UpdatesOnLaunch = La actualización {0} se instala al abrir
+Main.InstallsOnLaunch = Roblox {0} se instala al abrir
+
+# Widgets
+Widgets.MenuKey = Tecla del menú de widgets
+Widgets.MenuKeyDesc = Púlsala en Roblox para activar o desactivar widgets y mover la tarjeta de música. Nimbus solo detecta la tecla; el juego también la recibe.
+Widgets.PressAKey = Pulsa una tecla…
+Widgets.Server = Ubicación del servidor
+Widgets.ServerDesc = La ciudad y el país del servidor en el que estás.
+Widgets.Clock = Reloj
+Widgets.ClockDesc = La hora de tu PC.
+Widgets.Session = Tiempo de sesión
+Widgets.SessionDesc = Cuánto tiempo llevas en este juego.
+Widgets.Cpu = Uso de CPU
+Widgets.CpuDesc = Lo ocupado que está tu procesador, en porcentaje.
+Widgets.Gpu = Uso de GPU
+Widgets.GpuDesc = Lo ocupada que está tu tarjeta gráfica, en porcentaje.
+Widgets.Music = Tarjeta de música
+Widgets.DimGame = Oscurecer el juego
+Widgets.DimGameDesc = Oscurece Roblox mientras el menú de widgets está abierto.
+Widgets.Snow = Nieve cayendo
+Widgets.SnowDesc = Copos blancos cayendo detrás del menú de widgets.
+Widgets.MenuTitle = Widgets
+Widgets.KeyRightCtrl = Ctrl derecho
+Widgets.KeyLeftCtrl = Ctrl izquierdo
+Widgets.KeyRightShift = Mayús derecha
+Widgets.KeyLeftShift = Mayús izquierda
+Widgets.KeyRightAlt = Alt Gr
+Music.NothingPlaying = No suena nada
+Widgets.LabelSession = Sesión
+Widgets.ResetCard = Restablecer posición
+Widgets.ResetCardDesc = Devuelve la tarjeta de música arriba a la derecha.
+Widgets.StatsHint = Se muestran en una línea al final de la tarjeta de música. Con la música desactivada (o sin nada sonando), la tarjeta muestra solo esa línea.
+
+# Widgets page, playtime, death sounds and fonts
+Main.Widgets = Widgets
+Widgets.MenuSection = Menú de widgets
+Widgets.CardSection = Tarjeta de música
+Widgets.StatsSection = Línea de datos
+History.ClearPlaytime = Borrar tiempo de juego
+History.RemoveGame = Quitar de Más jugados
+Mods.MySounds = Mis sonidos
+Mods.MySoundsDesc = Añade tus propios archivos .ogg, .mp3 o .wav. Cada uno aparece arriba como un recuadro.
+Mods.AddSound = Añadir sonido…
+Mods.Listen = Escuchar
+Mods.RemoveSound = Quitar sonido
+Sound.blip = Blip
+Sound.gameover = Game over
+Sound.zap = Zap
+Sound.ding = Ding
+Sound.thud = Golpe
+Mods.FontGalleryDesc = Cambia todo el texto de Roblox. Las fuentes gratis se descargan una vez, la primera vez que las eliges.
+Mods.FontDefault = Roblox
+Mods.FontOwn = La mía
+Mods.FontDownloads = Se descarga al elegirla
+ModFiles.FontDownloadBad = La fuente descargada no era el archivo esperado, así que Nimbus no la usó.
+ModFiles.FontDownloadFailed = No se pudo descargar la fuente. Revisa tu conexión a internet y vuelve a intentarlo.

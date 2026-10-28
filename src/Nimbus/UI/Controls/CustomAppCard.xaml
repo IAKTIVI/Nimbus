@@ -1,0 +1,82 @@
+<UserControl x:Class="Nimbus.UI.Controls.CustomAppCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:l="clr-namespace:Nimbus.UI"
+             xmlns:c="clr-namespace:Nimbus.UI.Controls">
+    <StackPanel>
+
+        <!-- Header: the program and when it starts -->
+        <Grid Margin="18,12,18,12">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Border Width="36" Height="36" CornerRadius="9" Background="{DynamicResource TrackBrush}">
+                <Image x:Name="AppIcon" Width="24" Height="24" RenderOptions.BitmapScalingMode="HighQuality" />
+            </Border>
+
+            <StackPanel Grid.Column="1" Margin="14,0,14,0" VerticalAlignment="Center">
+                <TextBlock x:Name="NameText" FontSize="14" TextTrimming="CharacterEllipsis" />
+                <TextBlock x:Name="SummaryText" FontSize="12" Margin="0,3,0,0" TextTrimming="CharacterEllipsis"
+                           Foreground="{DynamicResource TextTertiaryBrush}" />
+            </StackPanel>
+
+            <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center">
+                <CheckBox x:Name="EnabledToggle" Style="{StaticResource Switch}" ToolTip="{l:T Apps.OnOff}" Click="Enabled_Click" />
+                <Button x:Name="EditButton" Content="{l:T Apps.Edit}" Margin="12,0,0,0" Click="Edit_Click" />
+                <Button Margin="8,0,0,0" Padding="10,0" ToolTip="{l:T Apps.Remove}" Click="Remove_Click">
+                    <TextBlock Text="&#xE74D;" FontFamily="{StaticResource IconFont}" FontSize="13" />
+                </Button>
+            </StackPanel>
+        </Grid>
+
+        <!-- Options -->
+        <StackPanel x:Name="Editor" Visibility="Collapsed">
+            <Border Style="{StaticResource RowSeparator}" />
+            <c:SettingRow Title="{l:T Apps.LaunchArguments}" IsStacked="True" Description="{l:T Apps.LaunchArgumentsDesc}">
+                <TextBox x:Name="ArgsBox" Width="360" HorizontalAlignment="Left" TextChanged="Args_TextChanged" />
+            </c:SettingRow>
+
+            <Border Style="{StaticResource RowSeparator}" />
+            <c:SettingRow Title="{l:T Apps.OnlyForTheseGames}" IsStacked="True"
+                          Description="{l:T Apps.OnlyForTheseGamesDesc}">
+                <StackPanel>
+                    <WrapPanel x:Name="GameChips" />
+                    <Button x:Name="AddGameButton" Content="{l:T Apps.AddGame}" HorizontalAlignment="Left" Margin="0,4,0,0" Click="AddGame_Click" />
+
+                    <Border x:Name="GamePicker" Style="{StaticResource GlassPanel}" Margin="0,10,0,0" Padding="14,12" Visibility="Collapsed">
+                        <StackPanel>
+                            <TextBlock x:Name="HistoryLabel" Text="{l:T Apps.FromYourHistory}" Style="{StaticResource CaptionText}" Margin="0,0,0,8" />
+                            <WrapPanel x:Name="HistoryGames" />
+                            <TextBlock Text="{l:T Apps.OrPasteAGame}" Style="{StaticResource CaptionText}" Margin="0,8,0,8" />
+                            <DockPanel>
+                                <Button x:Name="AddLinkButton" DockPanel.Dock="Right" Content="{l:T Apps.Add}" Style="{StaticResource PrimaryButton}" Margin="8,0,0,0" Click="AddLink_Click" />
+                                <TextBox x:Name="LinkBox" MinWidth="300" KeyDown="LinkBox_KeyDown" />
+                            </DockPanel>
+                            <TextBlock x:Name="LinkStatus" FontSize="12" Margin="0,6,0,0" Foreground="{DynamicResource DangerBrush}" Visibility="Collapsed" />
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </c:SettingRow>
+
+            <Border Style="{StaticResource RowSeparator}" />
+            <c:SettingRow Title="{l:T Apps.WaitBeforeStarting}" IsStacked="True" Description="{l:T Apps.WaitBeforeStartingDesc}">
+                <ListBox x:Name="DelayPicker" Style="{StaticResource Segmented}" HorizontalAlignment="Left" SelectionChanged="Delay_Changed">
+                    <ListBoxItem Content="{l:T Apps.NoWait}" />
+                    <ListBoxItem Content="{l:T Apps.5S}" />
+                    <ListBoxItem Content="{l:T Apps.10S}" />
+                    <ListBoxItem Content="{l:T Apps.30S}" />
+                    <ListBoxItem Content="{l:T Apps.1Min}" />
+                </ListBox>
+            </c:SettingRow>
+
+            <Border Style="{StaticResource RowSeparator}" />
+            <c:SettingRow Title="{l:T Apps.CloseItWhenRoblox}" Description="{l:T Apps.CloseItWhenRobloxDesc}">
+                <CheckBox x:Name="CloseToggle" Style="{StaticResource Switch}" Click="Close_Click" />
+            </c:SettingRow>
+        </StackPanel>
+
+    </StackPanel>
+</UserControl>

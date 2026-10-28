@@ -1,0 +1,155 @@
+<UserControl x:Class="Nimbus.UI.Pages.EnginePage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:l="clr-namespace:Nimbus.UI"
+             xmlns:c="clr-namespace:Nimbus.UI.Controls">
+    <StackPanel>
+
+        <Border Style="{StaticResource GlassPanel}" Margin="0,16,0,0">
+            <c:SettingRow Title="{l:T Engine.Profile}" Description="{l:T Engine.ProfileDesc}">
+                <StackPanel Orientation="Horizontal">
+                    <Border Style="{StaticResource AccentPill}" VerticalAlignment="Center" Margin="0,0,12,0">
+                        <TextBlock x:Name="ProfileName" />
+                    </Border>
+                    <Button Content="{l:T Engine.ChangeProfile}" Click="ChangeProfile_Click" />
+                </StackPanel>
+            </c:SettingRow>
+        </Border>
+
+        <TextBlock Style="{StaticResource SectionLabel}" Text="{l:T Engine.Rendering}" />
+        <Border Style="{StaticResource GlassPanel}">
+            <StackPanel>
+                <c:SettingRow Title="{l:T Engine.GraphicsAPI}" IsStacked="True"
+                              Description="{l:T Engine.GraphicsAPIDesc}">
+                    <ListBox x:Name="ApiPicker" Style="{StaticResource Segmented}" SelectionChanged="Picker_Changed">
+                        <ListBoxItem Content="{l:T Engine.Automatic}" />
+                        <ListBoxItem Content="{l:T Engine.DirectX11}" />
+                        <ListBoxItem Content="{l:T Engine.Vulkan}" />
+                        <ListBoxItem Content="{l:T Engine.OpenGL}" />
+                    </ListBox>
+                </c:SettingRow>
+                <Border Style="{StaticResource RowSeparator}" />
+                <c:SettingRow Title="{l:T Engine.AntiAliasing}" IsStacked="True" Description="{l:T Engine.AntiAliasingDesc}">
+                    <ListBox x:Name="MsaaPicker" Style="{StaticResource Segmented}" SelectionChanged="Picker_Changed">
+                        <ListBoxItem Content="{l:T Engine.Automatic}" />
+                        <ListBoxItem Content="{l:T Engine.Off}" />
+                        <ListBoxItem Content="{l:T Engine.2x}" />
+                        <ListBoxItem Content="{l:T Engine.4x}" />
+                    </ListBox>
+                </c:SettingRow>
+                <Border Style="{StaticResource RowSeparator}" />
+                <c:SettingRow Title="{l:T Engine.TextureQuality}" IsStacked="True" Description="{l:T Engine.TextureQualityDesc}">
+                    <ListBox x:Name="TexturePicker" Style="{StaticResource Segmented}" SelectionChanged="Picker_Changed">
+                        <ListBoxItem Content="{l:T Engine.Automatic}" />
+                        <ListBoxItem Content="{l:T Engine.Lowest}" />
+                        <ListBoxItem Content="{l:T Engine.Low}" />
+                        <ListBoxItem Content="{l:T Engine.Medium}" />
+                        <ListBoxItem Content="{l:T Engine.High}" />
+                    </ListBox>
+                </c:SettingRow>
+                <Border Style="{StaticResource RowSeparator}" />
+                <c:SettingRow Title="{l:T Engine.GraphicsQuality}" IsStacked="True"
+                              Description="{l:T Engine.GraphicsQualityDesc}">
+                    <ListBox x:Name="QualityPicker" Style="{StaticResource Segmented}" SelectionChanged="Picker_Changed">
+                        <ListBoxItem Content="{l:T Engine.Automatic}" />
+                        <ListBoxItem Content="{l:T Engine.Lowest}" />
+                        <ListBoxItem Content="{l:T Engine.Low}" />
+                        <ListBoxItem Content="{l:T Engine.Medium}" />
+                        <ListBoxItem Content="{l:T Engine.High}" />
+                        <ListBoxItem Content="{l:T Engine.Highest}" />
+                    </ListBox>
+                </c:SettingRow>
+            </StackPanel>
+        </Border>
+
+        <TextBlock Style="{StaticResource SectionLabel}" Text="{l:T Engine.Visuals}" />
+        <Border Style="{StaticResource GlassPanel}">
+            <StackPanel>
+                <c:SettingRow Title="{l:T Engine.GraySky}" Description="{l:T Engine.GraySkyDesc}">
+                    <CheckBox x:Name="GraySkyToggle" Style="{StaticResource Switch}" Click="Toggle_Click" />
+                </c:SettingRow>
+                <Border Style="{StaticResource RowSeparator}" />
+                <c:SettingRow Title="{l:T Engine.HideGrass}" Description="{l:T Engine.HideGrassDesc}">
+                    <CheckBox x:Name="HideGrassToggle" Style="{StaticResource Switch}" Click="Toggle_Click" />
+                </c:SettingRow>
+                <Border Style="{StaticResource RowSeparator}" />
+                <c:SettingRow Title="{l:T Engine.StillGrass}" Description="{l:T Engine.StillGrassDesc}">
+                    <CheckBox x:Name="StillGrassToggle" Style="{StaticResource Switch}" Click="Toggle_Click" />
+                </c:SettingRow>
+                <Border Style="{StaticResource RowSeparator}" />
+                <c:SettingRow Title="{l:T Engine.SimpleMeshes}" Description="{l:T Engine.SimpleMeshesDesc}">
+                    <CheckBox x:Name="LowDetailToggle" Style="{StaticResource Switch}" Click="Toggle_Click" />
+                </c:SettingRow>
+                <Border Style="{StaticResource RowSeparator}" />
+                <c:SettingRow Title="{l:T Engine.FreezeLighting}" Description="{l:T Engine.FreezeLightingDesc}">
+                    <CheckBox x:Name="FreezeLightingToggle" Style="{StaticResource Switch}" Click="Toggle_Click" />
+                </c:SettingRow>
+                <Border Style="{StaticResource RowSeparator}" />
+                <c:SettingRow Title="{l:T Mods.RemoveWaterTexture}" Description="{l:T Mods.RemoveWaterTextureDesc}">
+                    <CheckBox x:Name="WaterToggle" Style="{StaticResource Switch}" Click="Water_Click" />
+                </c:SettingRow>
+            </StackPanel>
+        </Border>
+
+        <TextBlock Style="{StaticResource SectionLabel}" Text="{l:T Engine.Display}" />
+        <Border Style="{StaticResource GlassPanel}">
+            <StackPanel>
+                <c:SettingRow Title="{l:T Engine.ExclusiveFullscreen}" Description="{l:T Engine.ExclusiveFullscreenDesc}">
+                    <CheckBox x:Name="FullscreenToggle" Style="{StaticResource Switch}" Click="Toggle_Click" />
+                </c:SettingRow>
+                <Border Style="{StaticResource RowSeparator}" />
+                <c:SettingRow Title="{l:T Engine.FullResolution}" Description="{l:T Engine.FullResolutionDesc}">
+                    <CheckBox x:Name="FullResolutionToggle" Style="{StaticResource Switch}" Click="Toggle_Click" />
+                </c:SettingRow>
+            </StackPanel>
+        </Border>
+
+        <TextBlock Style="{StaticResource SectionLabel}" Text="{l:T Engine.AdvancedFastFlags}" />
+        <Border Style="{StaticResource GlassPanel}" Padding="18,16">
+            <StackPanel>
+                <TextBox x:Name="FlagsBox" Style="{StaticResource CodeBox}" TextChanged="FlagsBox_TextChanged" />
+
+                <Border x:Name="FlagError" Style="{StaticResource ErrorBox}" Margin="0,10,0,0" Visibility="Collapsed">
+                    <TextBlock x:Name="FlagErrorText" TextWrapping="Wrap" FontSize="12" />
+                </Border>
+
+                <ItemsControl x:Name="FlagStatus" Margin="0,4,0,0">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Margin="2,8,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock FontFamily="Cascadia Mono, Consolas" FontSize="12" VerticalAlignment="Center" TextTrimming="CharacterEllipsis"
+                                           Foreground="{DynamicResource TextSecondaryBrush}">
+                                    <Run Text="{Binding Name, Mode=OneWay}" Foreground="{DynamicResource TextPrimaryBrush}" />
+                                    <Run Text=" = " />
+                                    <Run Text="{Binding Value, Mode=OneWay}" />
+                                </TextBlock>
+                                <Border x:Name="Good" Grid.Column="1" Style="{StaticResource GoodPill}" Margin="12,0,0,0">
+                                    <TextBlock Text="{l:T Engine.Works}" />
+                                </Border>
+                                <Border x:Name="Bad" Grid.Column="1" Style="{StaticResource BadPill}" Margin="12,0,0,0" Visibility="Collapsed">
+                                    <TextBlock Text="{l:T Engine.IgnoredByRoblox}" />
+                                </Border>
+                            </Grid>
+                            <DataTemplate.Triggers>
+                                <DataTrigger Binding="{Binding Allowed}" Value="False">
+                                    <Setter TargetName="Good" Property="Visibility" Value="Collapsed" />
+                                    <Setter TargetName="Bad" Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </DataTemplate.Triggers>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+                <StackPanel Orientation="Horizontal" Margin="0,14,0,0">
+                    <Button x:Name="AllowlistButton" Content="{l:T Engine.ShowAllowedFlags}" Click="Allowlist_Click" />
+                </StackPanel>
+                <TextBox x:Name="AllowlistText" Style="{StaticResource CodeBox}" Margin="0,12,0,0" Height="200" IsReadOnly="True" Visibility="Collapsed" />
+            </StackPanel>
+        </Border>
+
+    </StackPanel>
+</UserControl>

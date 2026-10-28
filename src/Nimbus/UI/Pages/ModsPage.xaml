@@ -1,0 +1,70 @@
+<UserControl x:Class="Nimbus.UI.Pages.ModsPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:l="clr-namespace:Nimbus.UI"
+             xmlns:c="clr-namespace:Nimbus.UI.Controls">
+    <StackPanel>
+
+        <Border x:Name="ErrorPanel" Style="{StaticResource ErrorBox}" Margin="0,16,0,0" Visibility="Collapsed">
+            <TextBlock x:Name="ErrorText" TextWrapping="Wrap" FontSize="12.5" />
+        </Border>
+
+        <TextBlock Style="{StaticResource SectionLabel}" Text="{l:T Mods.DeathSound}" />
+        <Border Style="{StaticResource GlassPanel}">
+            <StackPanel>
+                <c:SettingRow Title="{l:T Mods.WhenYourCharacterDies}" IsStacked="True"
+                              Description="{l:T Mods.WhenYourCharacterDiesDesc}">
+                    <ListBox x:Name="SoundGallery" Style="{StaticResource TileList}" Margin="0,0,0,-8" SelectionChanged="SoundGallery_Changed" />
+                </c:SettingRow>
+                <Border Style="{StaticResource RowSeparator}" />
+                <c:SettingRow Title="{l:T Mods.MySounds}" Description="{l:T Mods.MySoundsDesc}">
+                    <Button Content="{l:T Mods.AddSound}" Click="AddSound_Click" />
+                </c:SettingRow>
+            </StackPanel>
+        </Border>
+
+        <TextBlock Style="{StaticResource SectionLabel}" Text="{l:T Mods.Cursor}" />
+        <Border Style="{StaticResource GlassPanel}">
+            <StackPanel>
+                <c:SettingRow Title="{l:T Mods.MouseCursor}" IsStacked="True"
+                              Description="{l:T Mods.MouseCursorDesc}">
+                    <ListBox x:Name="CursorGallery" Style="{StaticResource TileList}" Margin="0,0,0,-8" SelectionChanged="CursorGallery_Changed" />
+                </c:SettingRow>
+                <StackPanel x:Name="CursorFilePanel" Visibility="Collapsed">
+                    <Border Style="{StaticResource RowSeparator}" />
+                    <c:SettingRow x:Name="CursorFileRow" Title="{l:T Mods.YourCursor}" Description="{l:T Mods.YourCursorDesc}">
+                        <Button Content="{l:T Mods.ChooseAnother}" Click="ChooseCursor_Click" />
+                    </c:SettingRow>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+        <TextBlock Style="{StaticResource SectionLabel}" Text="{l:T Mods.Font}" />
+        <Border Style="{StaticResource GlassPanel}">
+            <StackPanel>
+                <c:SettingRow Title="{l:T Mods.CustomFont}" IsStacked="True" Description="{l:T Mods.FontGalleryDesc}">
+                    <ListBox x:Name="FontGallery" Style="{StaticResource TileList}" Margin="0,0,0,-8" SelectionChanged="FontGallery_Changed" />
+                </c:SettingRow>
+                <StackPanel x:Name="FontFilePanel" Visibility="Collapsed">
+                    <Border Style="{StaticResource RowSeparator}" />
+                    <c:SettingRow x:Name="FontFileRow" Title="{l:T Mods.FontFile}" Description="{l:T Mods.FontFileDesc}">
+                        <Button Content="{l:T Mods.ChooseFont}" Click="ChooseFont_Click" />
+                    </c:SettingRow>
+                </StackPanel>
+                <TextBlock x:Name="FontPreview" Margin="18,0,18,16" FontSize="18" TextWrapping="Wrap" Visibility="Collapsed"
+                           Text="{l:T Mods.TheQuickBrownFox}" />
+            </StackPanel>
+        </Border>
+
+        <TextBlock Style="{StaticResource SectionLabel}" Text="{l:T Mods.YourMods}" />
+        <Border Style="{StaticResource GlassPanel}">
+            <c:SettingRow x:Name="ModsFolderRow" Title="{l:T Mods.ModsFolder}">
+                <Button Content="{l:T Mods.OpenFolder}" Click="OpenModsFolder_Click" />
+            </c:SettingRow>
+        </Border>
+
+        <TextBlock Style="{StaticResource CaptionText}" Margin="6,14,0,0"
+                   Text="{l:T Mods.ModsAreAppliedEvery}" />
+
+    </StackPanel>
+</UserControl>

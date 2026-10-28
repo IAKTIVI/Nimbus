@@ -1,0 +1,68 @@
+<UserControl x:Class="Nimbus.UI.Pages.IntegrationsPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:l="clr-namespace:Nimbus.UI"
+             xmlns:c="clr-namespace:Nimbus.UI.Controls">
+    <StackPanel>
+
+        <TextBlock Style="{StaticResource SectionLabel}" Text="{l:T Integrations.Discord}" />
+        <Border Style="{StaticResource GlassPanel}">
+            <StackPanel>
+                <c:SettingRow Title="{l:T Integrations.ShowWhatYouRe}" Description="{l:T Integrations.ShowWhatYouReDesc}">
+                    <CheckBox x:Name="DiscordToggle" Style="{StaticResource Switch}" Click="Toggle_Click" />
+                </c:SettingRow>
+                <Border Style="{StaticResource RowSeparator}" />
+                <c:SettingRow x:Name="AppIdRow" Title="{l:T Integrations.DiscordApplicationID}" IsStacked="True"
+                              Description="{l:T Integrations.DiscordApplicationIDDesc}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox x:Name="AppIdBox" Width="230" TextChanged="AppId_TextChanged" />
+                        <Button Content="{l:T Integrations.CreateOne}" Margin="8,0,0,0" Click="CreateApp_Click" />
+                        <TextBlock x:Name="AppIdStatus" Margin="12,0,0,0" VerticalAlignment="Center" FontSize="12" />
+                    </StackPanel>
+                </c:SettingRow>
+                <Border Style="{StaticResource RowSeparator}" />
+                <c:SettingRow Title="{l:T Integrations.JoinButton}" Description="{l:T Integrations.JoinButtonDesc}">
+                    <CheckBox x:Name="JoinButtonToggle" Style="{StaticResource Switch}" Click="Toggle_Click" />
+                </c:SettingRow>
+                <Border Style="{StaticResource RowSeparator}" />
+                <c:SettingRow Title="{l:T Integrations.LetGamesSetYour}" Description="{l:T Integrations.LetGamesSetYourDesc}">
+                    <CheckBox x:Name="GameStatusToggle" Style="{StaticResource Switch}" Click="Toggle_Click" />
+                </c:SettingRow>
+            </StackPanel>
+        </Border>
+
+        <TextBlock Style="{StaticResource SectionLabel}" Text="{l:T Integrations.WhileYouPlay}" />
+        <Border Style="{StaticResource GlassPanel}">
+            <StackPanel>
+                <c:SettingRow Title="{l:T Integrations.ServerLocation}"
+                              Description="{l:T Integrations.ServerLocationDesc}">
+                    <CheckBox x:Name="LocationToggle" Style="{StaticResource Switch}" Click="Toggle_Click" />
+                </c:SettingRow>
+                <Border Style="{StaticResource RowSeparator}" />
+                <c:SettingRow Title="{l:T Integrations.GameHistory}" Description="{l:T Integrations.GameHistoryDesc}">
+                    <CheckBox x:Name="HistoryToggle" Style="{StaticResource Switch}" Click="Toggle_Click" />
+                </c:SettingRow>
+                <Border Style="{StaticResource RowSeparator}" />
+                <c:SettingRow Title="{l:T Integrations.AutoRejoin}"
+                              Description="{l:T Integrations.AutoRejoinDesc}">
+                    <CheckBox x:Name="RejoinToggle" Style="{StaticResource Switch}" Click="Toggle_Click" />
+                </c:SettingRow>
+            </StackPanel>
+        </Border>
+
+        <TextBlock Style="{StaticResource SectionLabel}" Text="{l:T Integrations.YourPrograms}" />
+        <Border Style="{StaticResource GlassPanel}">
+            <StackPanel>
+                <StackPanel x:Name="AppsList" />
+                <c:SettingRow Title="{l:T Integrations.StartYourOwnPrograms}"
+                              Description="{l:T Integrations.StartYourOwnProgramsDesc}">
+                    <Button Content="{l:T Integrations.AddProgram}" Click="AddApp_Click" />
+                </c:SettingRow>
+            </StackPanel>
+        </Border>
+
+        <TextBlock Style="{StaticResource CaptionText}" Margin="6,14,0,0"
+                   Text="{l:T Integrations.TheseRunFromA}" />
+
+    </StackPanel>
+</UserControl>
